@@ -10,5 +10,7 @@
 
 	body {
 		font-family: 'Inter', sans-serif;
+		width: 100%;
+		/* padding: 48px; */
 	}
 </style>

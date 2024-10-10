@@ -37,8 +37,6 @@
 
 <style scoped>
 	.aboutPage {
-		width: 1165px;
-		height: 1696px;
 		padding-top: 48px;
 		padding-left: 48px;
 		padding-right: 48px;
@@ -46,7 +44,6 @@
 	}
 
 	.bigLabelField {
-		width: 1184px;
 		height: 100px;
 		padding-top: 21px;
 		padding-bottom: 21px;
@@ -54,19 +51,17 @@
 		padding-right: 503px;
 		gap: 10px;
 		background-color: bisque;
+		display: flex;
+		justify-content: center;
 	}
 
 	.bigLabel {
-		width: 431px;
-		height: 58px;
 		font-weight: 600;
 		font-size: 48px;
 		line-height: 58.09px;
 	}
 
 	.aboutContent {
-		width: 1184px;
-		height: 1548px;
 		gap: 48px;
 		background-color: azure;
 		display: flex;
@@ -82,8 +77,6 @@
 	}
 
 	.aboutContentText {
-		width: 1184px;
-		height: 1200px;
 		gap: 16px;
 		background-color: lightgray;
 	}

@@ -1,6 +1,14 @@
 <script setup>
 	import photoSrc from '@/assets/Yukino.jpg';
 	import Photo from '~/components/Photo/Photo.vue';
+	import { useRouter } from 'vue-router';
+
+	const router = useRouter();
+
+	//METHODS
+	const aboutPage = () => {
+		router.push("/about"); 
+	};
 </script>
 
 <template>
@@ -15,10 +23,10 @@
 					<div class="introContentText">
 						こんにちは！このかわいい白いポメラニアンの名前はユキ（雪）です。名前の通り、彼女はふわふわの白い毛を持ち、まるで小さな雪のかたまりのようです。ユキはとても優しく、みんなの心を癒す存在です。散歩のときには、彼女の小さな足で元気に歩き、多くの人を笑顔にしています。もし可愛らしいポメラニアンに興味があれば、ぜひ彼女のストーリーをフォローしてみてください！
 					</div>
-					<div class="aboutButtom">
-						<router-link to="/about">
+					<div class="aboutButtom" @click="aboutPage">
+						<div class="aboutButtomlabel">
 							雪ちゃんは
-						</router-link>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -31,68 +39,70 @@
 
 <style scoped>
 	.intro {
-		width: 1165px;
 		height: 448px;
 		padding-top: 48px;
 		padding-left: 48px;
 		padding-right: 48px;
 		background-color: aquamarine;
+		
 	}
 
 	.bigLabelField {
-		width: 1040;
 		height: 100px;
 		padding-top: 21px;
 		padding-bottom: 21px;
 		padding-left: 503px;
 		padding-right: 503px;
 		background-color: bisque;
+		display: grid;            
+  		place-items: center;
 	}
 
 	.bigLabel {
-		width: 240px;
-		height: 58px;
 		font-weight: 600;
 		font-size: 48px;
-		line-height: 58.09px;
 	}
 
-.shortAbout {
-	width: 100%;
-	max-width: 160px;
-	height: 100%;
-	max-height: 100px;
-	background-color: aqua;
-	display: flex;
-	justify-content: space-between;
-}
+	.shortAbout {
+		background-color: aqua;
+		display: flex;
+		justify-content: space-between;
+	}
 
-.bigAva {
-	width: 300px;
-	height: 300px;
-	border-radius: 12px;
-}
+	.bigAva {
+		width: 300px;
+		height: 300px;
+		border-radius: 12px;
+	}
 
-.introContent {
-	width: 100%;
-	max-width: 160px;
-	height: 100%;
-	max-height: 100px;
-}
+	.introContent {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+	}
 
-.introContentText {
-	width: 836px;
-	height: 200px;
-	font-weight: 400;
-	font-size: 20px;
-	line-height: 40px;
-}
+	.introContentText {
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 40px;
+		padding-left: 50px;
+	}
 
-.aboutButtom {
-	width: 300px;
-	height: 50px;
-	border-radius: 16px;
-	gap: 10px;
-	background-color: #007AFF;
-}
+	.aboutButtom {
+		width: 300px;
+		height: 50px;
+		border-radius: 16px;
+		gap: 10px;
+		background-color: #007AFF;
+		cursor: pointer;
+		display: grid;            
+  		place-items: center;
+	}
+
+	.aboutButtomlabel {
+		font-weight: 500;
+		font-size: 24px;
+	}
 </style>

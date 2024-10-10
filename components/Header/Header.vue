@@ -21,10 +21,6 @@
 
 <style>
 .headerContainer {
-	width: 100%;
-	max-width: 1165px;
-	height: 100%;
-	max-height: 70px;
 	display: flex;
 	justify-content: space-between;
 	padding-top: 10px;

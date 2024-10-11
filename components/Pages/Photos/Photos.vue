@@ -1,5 +1,17 @@
 <script setup>
-	const { $nuxt } = useNuxtApp();
+	//DATA
+	// const { $PhotosGet } = useNuxtApp();
+	const photos = reactive([]);
+	const refPreview = ref(null);
+	// const lastPhoto = photos[photos.length - 1];
+
+	const fetchPhotos = (event) => {
+		photos.push(...event)
+	}
+
+	const selectPhoto = (event) => {
+		refPreview.value.select(event)
+	}
 </script>
 
 <template>
@@ -11,10 +23,15 @@
 				</div>
 			</div>
 			<div class="bigPhotoBlock">
-				a big photo will be here
+				<PagesPhotosPreview ref="refPreview" :items="photos"/>
+			</div>
+			<div class="smallLabelField">
+				<div class="smallLabel">
+					写真12枚
+				</div>
 			</div>
 			<div class="allPhotos">
-				photos will be here
+				<Photos @loaded="fetchPhotos" @select="selectPhoto" />
 			</div>
 		</div>
 	</div>
@@ -48,6 +65,18 @@
 		padding-left: 120px;
 		padding-right: 120px;
 		background-color: lightblue;
+	}
+
+	.smallLabelField {
+		height: 148px;
+		background-color: lightcyan;
+		display: grid;            
+  		place-items: center;
+	}
+
+	.smallLabel {
+		font-weight: 400;
+		font-size: 36px;
 	}
 
 	.allPhotos {

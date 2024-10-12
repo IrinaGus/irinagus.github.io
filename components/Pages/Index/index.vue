@@ -1,9 +1,10 @@
 <script setup>
 	import photoSrc from '@/assets/Yukino.jpg';
-	import Photo from '~/components/Photo/Photo.vue';
 	import { useRouter } from 'vue-router';
+	import ReviewsShort from '~/components/Reviews/ReviewsShort.vue';
 
 	const router = useRouter();
+	const reviewsToShow = 2;
 
 	//METHODS
 	const aboutPage = () => {
@@ -32,7 +33,10 @@
 			</div>
 		</div>
 		<div class="photoBlock">
-			<Photo />
+			<PhotosPhotoShort />
+		</div>
+		<div class="reviewBlock">
+			<ReviewsShort />
 		</div>
 	</div>
 </template>

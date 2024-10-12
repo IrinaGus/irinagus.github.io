@@ -1,3 +1,7 @@
+<script setup>
+	const reviewsToShow = 3
+</script>
+
 <template>
 	<div>
 		<div class="reviewsPage">
@@ -6,6 +10,7 @@
 					レビュー
 				</div>
 			</div>
+			<div><Reviews :count="reviewsToShow"/></div>
 		</div>
 	</div>
 </template>

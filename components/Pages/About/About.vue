@@ -1,6 +1,7 @@
 <script setup>
 	import photoSrc from '@/assets/Yukino.jpg';
 
+
 	//DATA
 	const paragraphs = [
 	{ text: "ユキについて", className: "headerText" },
@@ -10,6 +11,21 @@
 	{ text: "ユキはとても優しく、人懐っこい性格です。初めて会う人にもすぐに打ち解け、尻尾を振って挨拶をします。彼女は社交的で、他の犬や人ともすぐに仲良くなります。特に散歩のときは、近所の人たちに会うのが大好きで、みんなから「かわいい！」と言われると、得意げに歩き回ります。", 
 		className: "restText" },
 	];
+
+	const { $ReviewsGet } = useNuxtApp();
+	const reviews = reactive([...$ReviewsGet()]);
+	
+	
+	
+	//METHODS 
+	const calculateAverageStars = (reviews) => {
+		if (reviews.length === 0) return 0;
+		const sum = reviews.reduce((acc, review) => acc + review.stars, 0); 
+		return (sum / reviews.length).toFixed(1);
+	};
+
+	const averageStars = calculateAverageStars(reviews);
+	
 </script>
 
 <template>
@@ -17,6 +33,8 @@
 		<div class="aboutPage">
 			<div class="bigLabelField">
 				<div class="bigLabel">雪ちゃんについて</div>
+				<ReviewsStars :star="averageStars" />
+				<div>{{ averageStars }}</div>
 			</div>	
 			<div class="aboutContent">
 				<img :src="photoSrc" alt="photo" class="bigAva" />

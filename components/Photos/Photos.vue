@@ -1,26 +1,34 @@
 <script setup>
 	const emit = defineEmits(["loaded", "select"]);
+	const props = defineProps({
+  		count: Number,      
+	});
 
 
 	//DATA
 	const { $PhotosGet } = useNuxtApp();
 	const photos = reactive([...$PhotosGet()]);
 
+	const displayedPhotos = computed(() => {
+    	return photos.slice(0, props.count);
+  	});
 
+	
 	//METHODS
 	const init = () => {
-		emit("loaded", photos);
+		emit("loaded", displayedPhotos.value);
 	};
 
-
 	//INIT
-	init()
+	onMounted(() => {
+		init();
+	});
 </script>
 
 <template>
 	<div>
 		<img 
-			v-for="(item, index) of photos" 
+			v-for="(item, index) of displayedPhotos" 
 			:key="'photo' + index" 
 			:src="item.src"
 			@click="emit('select', item)"

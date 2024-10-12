@@ -1,9 +1,8 @@
 <script setup>
 	//DATA
-	// const { $PhotosGet } = useNuxtApp();
 	const photos = reactive([]);
 	const refPreview = ref(null);
-	// const lastPhoto = photos[photos.length - 1];
+	const photosToShow = 3;
 
 	const fetchPhotos = (event) => {
 		photos.push(...event)
@@ -11,7 +10,16 @@
 
 	const selectPhoto = (event) => {
 		refPreview.value.select(event)
+		console.log(event);
 	}
+
+	const route = useRoute();
+	const index = route.query.index;
+	console.log(index);
+	// refPreview.value.select(index)
+
+	
+
 </script>
 
 <template>
@@ -31,7 +39,8 @@
 				</div>
 			</div>
 			<div class="allPhotos">
-				<Photos @loaded="fetchPhotos" @select="selectPhoto" />
+				<Photos @loaded="fetchPhotos" @select="selectPhoto" 
+					:count="photosToShow"/>
 			</div>
 		</div>
 	</div>

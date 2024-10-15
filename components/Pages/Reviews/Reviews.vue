@@ -1,5 +1,10 @@
 <script setup>
 	const reviewsToShow = 3
+
+	//METHODS
+	const add = () => {
+		// router.push({ path: '@/components/Reviews/Add.vue' });
+	};
 </script>
 
 <template>
@@ -9,6 +14,7 @@
 				<div class="bigLabel">
 					レビュー
 				</div>
+				<div class="addReview" @click="add">+新しい</div>
 			</div>
 			<div><Reviews :count="reviewsToShow"/></div>
 		</div>

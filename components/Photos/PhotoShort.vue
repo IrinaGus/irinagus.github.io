@@ -1,8 +1,4 @@
 <script setup>
-	import Photos from './Photos.vue';
-	import { useRouter } from 'vue-router';
-
-	
 	//DATA 
 	const router = useRouter();
 	const photosToShow = 2;
@@ -14,8 +10,8 @@
 		router.push("/photos"); 
 	};
 
-	const selectPhoto = (index) => {
-		router.push({ path: '/photos', query: { index: index.src } })
+	const selectPhoto = (id) => {
+		router.push({name: "photos", query: {id}})	
 	};
 </script>
 

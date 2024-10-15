@@ -2,14 +2,31 @@
 	const props = defineProps({
 		items: Array,
 	});
+	
 
 	//DATA
-	const index = ref(0)
+	const router = useRouter()
+	const route = useRoute()
+	const index = ref(null)
 
 
 	//METHODS
-	const select = (photo) => {
-		const newIndex = props.items.findIndex(item => item === photo)
+	const init = () => {
+		
+		if (props.items.length) {
+			if (route.query.id) {
+				select(parseInt(route.query.id))
+			} else {
+				index.value = 0
+			}
+		} 
+	}
+
+	const select = (id) => {
+
+		const newIndex = props.items.findIndex(item => item.id === id)
+		console.log(props.items)
+		console.log(id)
 		if (newIndex === -1) return
 	
 		index.value = newIndex
@@ -33,7 +50,13 @@
 		}
 	}
 
+	const updateURL = () => {
+		router.push({query: {id: props.items[index.value].id}})
+	}
 
+
+	watch(() => props.items, init, {deep: true})
+	watch(index, updateURL)
 	defineExpose({select})
 </script>
 

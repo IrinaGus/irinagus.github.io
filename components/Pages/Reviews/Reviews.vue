@@ -1,10 +1,17 @@
 <script setup>
+	//DATA
 	const reviewsToShow = 3
+	const { $add, $getComponents } = useNuxtApp();
+	const addReview = markRaw(resolveComponent('ReviewsAdd'))
+
 
 	//METHODS
 	const add = () => {
-		// router.push({ path: '@/components/Reviews/Add.vue' });
+		$add(addReview)
+		const components = $getComponents();
+		console.log(components)
 	};
+
 </script>
 
 <template>

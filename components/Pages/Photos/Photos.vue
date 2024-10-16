@@ -8,9 +8,9 @@
 		photos.push(...event)
 	}
 
-	const selectPhoto = (event) => {
-		refPreview.value.select(event)
-		console.log(event);
+	const selectPhoto = (id) => {
+		refPreview.value.select(id)
+		console.log(id);
 	}
 
 	const route = useRoute();

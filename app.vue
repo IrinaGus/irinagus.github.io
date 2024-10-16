@@ -1,4 +1,10 @@
 <script setup lang="ts">
+	const { $getComponents } = useNuxtApp();
+
+
+	//DATA
+	const components = $getComponents();
+	console.log(components)
 </script>
 
 <template>
@@ -6,6 +12,9 @@
 		<Header />
 		<NuxtPage />
 		<Footer />
+		<div v-if="components.length > 0">
+			<Dialog />
+		</div>
 	</div>
 </template>
 

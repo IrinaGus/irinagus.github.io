@@ -9,8 +9,9 @@
 	const reviews = reactive([...$ReviewsGet()]);
 
 	const displayedReviews = computed(() => {
-    	return reviews.slice(0, props.count);
+    	return reviews.slice(0, props.count);	
   	});
+	  
 </script>
 
 <template>
@@ -23,7 +24,7 @@
 			<div>
 				<div class="reviewHeader">
 					<div>{{ item.name }}</div>
-					<ReviewsStars :star="item.stars" />
+					<ReviewsStars :star="item.stars" color="fill" />
 				</div>				
 				<div>{{ item.text }}</div>
 			</div>

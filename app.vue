@@ -1,10 +1,9 @@
 <script setup lang="ts">
-	const { $getComponents } = useNuxtApp();
+	const { $GetDialog } = useNuxtApp();
 
 
 	//DATA
-	const components = $getComponents();
-	console.log(components)
+	const components = $GetDialog();
 </script>
 
 <template>

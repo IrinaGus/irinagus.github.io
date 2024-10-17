@@ -1,15 +1,13 @@
 <script setup>
 	//DATA
-	const reviewsToShow = 3
-	const { $add, $getComponents } = useNuxtApp();
+	const reviewsToShow = 4
+	const { $AddDialog } = useNuxtApp();
 	const addReview = markRaw(resolveComponent('ReviewsAdd'))
 
 
 	//METHODS
 	const add = () => {
-		$add(addReview)
-		const components = $getComponents();
-		console.log(components)
+		$AddDialog(addReview)
 	};
 
 </script>

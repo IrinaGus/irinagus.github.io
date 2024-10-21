@@ -1,13 +1,12 @@
 <script setup>
-	import ava from '@/assets/icons/ava.svg';
-
 	//DATA
 	const { $ReviewsGet, $RemoveDialog } = useNuxtApp();
-	const reviews = reactive([...$ReviewsGet()]);
+	const reviews = $ReviewsGet();
 	const newReview = ref({
 		name: '',
 		text: '',
-		rating: null,
+		stars: null,
+		ava: null,
 	});
 
 
@@ -17,15 +16,20 @@
 			reviews.push({ ...newReview.value });
 		}
 		
+		console.log('from Add page', reviews)
 		newReview.value.name = ''
 		newReview.value.text = ''
 		
-		console.log(reviews)
+
 		$RemoveDialog()
 	}
 
 	const starClick = (index) => {
-		newReview.value.rating = index
+		newReview.value.stars = index
+	}
+
+	const reviewersAva = (ava) => {
+		newReview.value.ava = ava
 	}
 
 </script>
@@ -37,7 +41,7 @@
 		</div>
 		<div class="contentField">
 			<div class="ava">
-				<img :src='ava' alt="photo"/>
+				<ReviewsUploadPhoto @uploadedAva="reviewersAva"/>
 			</div>
 			<div class="inputField">
 				<div class="namestars">

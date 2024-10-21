@@ -6,8 +6,8 @@
 
 	//DATA
 	const { $ReviewsGet } = useNuxtApp();
-	const reviews = reactive([...$ReviewsGet()]);
-
+	const reviews = $ReviewsGet();
+	console.log('from Rev page', reviews)
 	const displayedReviews = computed(() => {
     	return reviews.slice(0, props.count);	
   	});
@@ -26,7 +26,7 @@
 					<div>{{ item.name }}</div>
 					<ReviewsStars :star="item.stars" color="fill" />
 				</div>				
-				<div>{{ item.text }}</div>
+				<div class="reviewText">{{ item.text }}</div>
 			</div>
 		</div> 
 	</div>
@@ -54,5 +54,11 @@
 	.reviewHeader {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.reviewText {
+		width: 604px;
+		font-weight: 400;
+		font-size: 12px;
 	}
 </style>

@@ -38,7 +38,6 @@
 	const selectStar = (index) => {
 		emit('selectStar', index);
 		selectedStar.value = index;
-		console.log(selectedStar.value) 
 	};
 </script>
 

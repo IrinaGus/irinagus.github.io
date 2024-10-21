@@ -4,7 +4,7 @@ import ava3 from '@/assets/photos/reviewava3.png';
 
 export default defineNuxtPlugin(() => {  
 	
-	const reviews = [
+	const reviews = reactive([
 		{alt: 'Review 1', 
 			text: 'ユキちゃんは完璧なパートナーです！彼女はとても賢くて、お座りや待ての指示をすぐに覚えました。それに、彼女と一緒にいるときはいつも幸せな気持ちになります。彼女の笑顔を見るたびに、疲れが吹き飛びます。友達にもユキちゃんを自慢したくなります！',
 			name: '田中',
@@ -20,10 +20,10 @@ export default defineNuxtPlugin(() => {
 			name: 'さくら',
 			ava: ava3,
 			stars: 4 },
-	  ];
+	  ]);
   
 	const get = () => {
-		return [...reviews]; 
+		return reviews; 
 	};
 
 	return {

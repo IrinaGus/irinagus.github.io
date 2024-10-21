@@ -2,7 +2,7 @@
 	//DATA
 	const photos = reactive([]);
 	const refPreview = ref(null);
-	const photosToShow = 3;
+	const photosToShow = 5;
 
 	const fetchPhotos = (event) => {
 		photos.push(...event)
@@ -10,16 +10,10 @@
 
 	const selectPhoto = (id) => {
 		refPreview.value.select(id)
-		console.log(id);
 	}
 
 	const route = useRoute();
 	const index = route.query.index;
-	console.log(index);
-	// refPreview.value.select(index)
-
-	
-
 </script>
 
 <template>

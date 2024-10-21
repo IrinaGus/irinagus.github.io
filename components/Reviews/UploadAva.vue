@@ -1,18 +1,9 @@
 <script setup>
-	const emit = defineEmits(['uploadedPhoto']);
-	
+	import ava from '@/assets/icons/ava.svg';
+
+	const emit = defineEmits(['uploadedAva']);
   
 	//DATA
-	const { $PhotosGet } = useNuxtApp();
-	const photos = $PhotosGet();
-	const maxId = photos.length > 0 ? Math.max(...photos.map(photo => photo.id)) : 0;
-
-	const newPhoto = ref({
-		id: null,
-		src: '',
-		alt: '',
-	});
-
 	const image = ref(null);
 	const fileInput = ref(null); 
   
@@ -29,26 +20,21 @@
 			const reader = new FileReader();
 			reader.onload = (e) => {
 				image.value = e.target.result; 
-
-				if (image.value) {
-					newPhoto.value.src = image.value;
-					newPhoto.value.id = maxId + 1;
-					photos.push({ ...newPhoto.value })
-					emit('uploadedPhoto', image.value, newPhoto.value.id);
-				}	
+				emit('uploadedAva', image.value);
 			};
 			reader.readAsDataURL(file);
 		}
 	};
+
+	
 </script>
   
 
 <template>
 	<div>
-		<div @click="triggerFileInput" class="uploadArea">
-			<div class="text">
-				写真を追加
-			</div>
+		<div @click="triggerFileInput" class="upload-area">
+			<img v-if="image" :src="image" alt="uploadedAva" width="100" />
+			<img v-else :src='ava' alt="dummyAva"/>
 		</div>
 		<input type="file" ref="fileInput" @change="onFileChange" 
 			style="display: none;" accept="image/*" />
@@ -57,22 +43,16 @@
 
 
 <style scoped>
-  	.uploadArea {
-		border-radius: 16px;
-		width: 196px;
-		height: 50px;
+  	.upload-area {
+		border-radius: 100px;
+		width: 72px;
+		height: 72px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: #007AFF;
 		display: flex;
 		align-items: center; 
 		justify-content: center;
-	}
-
-	.text {
-		font-size: 20px;
-		color: #007AFF;
-		font-weight: 500;
 	}
 </style>
   

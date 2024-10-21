@@ -7,6 +7,8 @@
 		text: '',
 		stars: null,
 		ava: null,
+		photo: null,
+		photoid: null,
 	});
 
 
@@ -16,7 +18,6 @@
 			reviews.push({ ...newReview.value });
 		}
 		
-		console.log('from Add page', reviews)
 		newReview.value.name = ''
 		newReview.value.text = ''
 		
@@ -32,6 +33,11 @@
 		newReview.value.ava = ava
 	}
 
+	const reviewersPhoto = (photo, id) => {
+		newReview.value.photo = photo
+		newReview.value.photoid = id
+	}
+
 </script>
 
 <template>
@@ -41,7 +47,7 @@
 		</div>
 		<div class="contentField">
 			<div class="ava">
-				<ReviewsUploadPhoto @uploadedAva="reviewersAva"/>
+				<ReviewsUploadAva @uploadedAva="reviewersAva"/>
 			</div>
 			<div class="inputField">
 				<div class="namestars">
@@ -53,6 +59,7 @@
 				<input class="review" placeholder="レビュー" 
 						v-model="newReview.text"/>
 				<div class="buttons">
+					<ReviewsUploadPhoto @uploadedPhoto="reviewersPhoto" />
 					<div class="save" @click="saveReview">
 						<div class="saveLabel">送る</div>
 					</div>
@@ -159,6 +166,11 @@
 		font-size: 20px;
 		font-weight: 400
 		
+	}
+
+	.buttons {
+		display: flex;
+		justify-content: space-between;
 	}
 
 	.save {

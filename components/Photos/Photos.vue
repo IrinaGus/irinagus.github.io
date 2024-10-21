@@ -7,7 +7,7 @@
 
 	//DATA
 	const { $PhotosGet } = useNuxtApp();
-	const photos = reactive([...$PhotosGet()]);
+	const photos = $PhotosGet();
 
 	const displayedPhotos = computed(() => {
     	return photos.slice(0, props.count);

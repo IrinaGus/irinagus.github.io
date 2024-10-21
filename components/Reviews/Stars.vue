@@ -36,7 +36,7 @@
 	};
 
 	const selectStar = (index) => {
-		emit('selectStar', index);
+		emit('selectStar', index + 1);
 		selectedStar.value = index;
 	};
 </script>

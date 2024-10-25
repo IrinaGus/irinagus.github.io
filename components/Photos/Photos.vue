@@ -10,7 +10,7 @@
 	const photos = $PhotosGet();
 
 	const displayedPhotos = computed(() => {
-    	return photos.slice(0, props.count);
+    	return props.count ? photos.slice(0, props.count) : photos;
   	});
 
 
@@ -26,7 +26,7 @@
 </script>
 
 <template>
-	<div>
+	<div class="photos">
 		<img 
 			v-for="(item, index) of displayedPhotos" 
 			:key="'photo' + index" 
@@ -35,3 +35,18 @@
 		/>
 	</div>
 </template>
+
+<style scoped>
+	.photos {
+		padding: 0 80px;
+		gap: 48px;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+	
+	img {
+		height: 200px;
+		width: 200px;
+		border-radius: 12px;
+	}
+</style>

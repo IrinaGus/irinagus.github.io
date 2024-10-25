@@ -6,7 +6,7 @@
   		star: Number, 
 		color: String 
 	});
-	const emit = defineEmits(['selectStar']);
+	const emit = defineEmits(['selectStars']);
 
 
 	//DATA
@@ -36,8 +36,8 @@
 	};
 
 	const selectStar = (index) => {
-		emit('selectStar', index + 1);
 		selectedStar.value = index;
+		emit('selectStars', selectedStar.value + 1);
 	};
 </script>
 

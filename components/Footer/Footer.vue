@@ -1,35 +1,29 @@
-<script setup>
-	import tg from '@/assets/icons/tg.svg';
-	import cat from '@/assets/icons/cat.svg';
-	import vk from '@/assets/icons/vk.svg';
-</script>
-
 <template>
-	<div>
-		<div class="footerContainer">
-			<div style="height: 1px; background-color: black; width: 100%;"></div>
-			<div class="foolLabel">
-				連絡先
-			</div>
-			<div class="icons">
-				<img :src='tg' alt="photo"/>
-				<img :src='cat' alt="photo"/>
-				<img :src='vk' alt="photo"/>
-			</div>
+	<div class="footerContainer">
+		<div class="line"></div>
+		<div class="foolLabel">
+			連絡先
+		</div>
+		<div class="icons">
+			<img src='@/assets/icons/tg.svg' alt="photo"/>
+			<img src='@/assets/icons/cat.svg' alt="photo"/>
+			<img src='@/assets/icons/vk.svg' alt="photo"/>
 		</div>
 	</div>
 </template>
 
 <style scoped>
 	.footerContainer {
-		height: 202px;
-		padding-top: 64px;
-		padding-bottom: 64px;
-		padding-left: 48px;
-		padding-right: 48px;
-		background-color: lightyellow;
+		height: 74px;
+		padding: 64px 48px;
 		display: grid;            
   		place-items: center;
+	}
+
+	.line {
+		height: 1px; 
+		background-color: #007AFF; 
+		width: 100%;
 	}
 
 	.foolLabel {

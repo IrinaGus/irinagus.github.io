@@ -1,5 +1,3 @@
 <template>
-	<div>
-		<PagesReviews />
-	</div>
+	<PagesReviews />
 </template>

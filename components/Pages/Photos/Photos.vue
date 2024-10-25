@@ -2,8 +2,9 @@
 	//DATA
 	const photos = reactive([]);
 	const refPreview = ref(null);
-	const photosToShow = 5;
 
+
+	//METHODS
 	const fetchPhotos = (event) => {
 		photos.push(...event)
 	}
@@ -11,50 +12,37 @@
 	const selectPhoto = (id) => {
 		refPreview.value.select(id)
 	}
-
-	const route = useRoute();
-	const index = route.query.index;
 </script>
 
 <template>
-	<div>
-		<div class="photoPage">
-			<div class="bigLabelField">
-				<div class="bigLabel">
-					写真
-				</div>
+	<div class="photoPage">
+		<div class="bigLabelField">
+			<div class="bigLabel">
+				写真
 			</div>
-			<div class="bigPhotoBlock">
-				<PagesPhotosPreview ref="refPreview" :items="photos"/>
+		</div>
+		<div class="bigPhotoBlock">
+			<PagesPhotosPreview ref="refPreview" :items="photos"/>
+		</div>
+		<div class="smallLabelField">
+			<div class="smallLabel">
+				写真12枚
 			</div>
-			<div class="smallLabelField">
-				<div class="smallLabel">
-					写真12枚
-				</div>
-			</div>
-			<div class="allPhotos">
-				<Photos @loaded="fetchPhotos" @select="selectPhoto" 
-					:count="photosToShow"/>
-			</div>
+		</div>
+		<div class="allPhotos">
+			<Photos @loaded="fetchPhotos" @select="selectPhoto" />
 		</div>
 	</div>
 </template>
 
 <style scoped>
 	.photoPage {
-		padding-top: 64px;
-		padding-left: 48px;
-		padding-right: 48px;
-		background-color: lightpink;
+		padding: 64px 48px 0;
 	}
 
 	.bigLabelField {
 		height: 100px;
-		padding-top: 21px;
-		padding-bottom: 21px;
-		padding-right: 503px;
-		padding-left: 503px;
-		background-color: lightsalmon;
+		padding: 21px 503px;
 		display: grid;            
   		place-items: center;
 		}
@@ -62,17 +50,15 @@
 	.bigLabel {
 		font-weight: 600;
 		font-size: 48px;
+		color: #1C1C1C;
 	}
 
 	.bigPhotoBlock {
-		padding-left: 120px;
-		padding-right: 120px;
-		background-color: lightblue;
+		padding: 0 120px;
 	}
 
 	.smallLabelField {
 		height: 148px;
-		background-color: lightcyan;
 		display: grid;            
   		place-items: center;
 	}
@@ -83,9 +69,7 @@
 	}
 
 	.allPhotos {
-		padding-left: 80px;
-		padding-right: 80px;
+		padding: 0 80px;
 		gap: 48px;
-		background-color: blanchedalmond;
 	}
 </style>

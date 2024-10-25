@@ -1,6 +1,5 @@
 <script setup>
 	//DATA
-	const reviewsToShow = 4
 	const { $AddDialog } = useNuxtApp();
 	const addReview = markRaw(resolveComponent('ReviewsAdd'))
 
@@ -13,40 +12,40 @@
 </script>
 
 <template>
-	<div>
-		<div class="reviewsPage">
-			<div class="bigLabelField">
-				<div class="bigLabel">
-					レビュー
-				</div>
-				<div class="addReview" @click="add">+新しい</div>
+	<div class="reviewsPage">
+		<div class="bigLabelField">
+			<div class="bigLabel">
+				レビュー
 			</div>
-			<div><Reviews :count="reviewsToShow"/></div>
+			<div class="addReview" @click="add">+新しい</div>
 		</div>
+		<div><Reviews :count="reviewsToShow"/></div>
 	</div>
 </template>
 
 <style scoped>
 	.reviewsPage {
-		padding-top: 64px;
-		padding-left: 48px;
-		padding-right: 48px;
-		background-color: lightgreen;
+		padding: 64px 48px 0;
 	}
 
 	.bigLabelField {
 		height: 100px;
-		padding-top: 21px;
-		padding-bottom: 21px;
-		padding-right: 503px;
-		padding-left: 503px;
-		background-color: lightsalmon;
-		display: grid;            
-  		place-items: center;
+		padding: 21px 503px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
 		}
 
 	.bigLabel {
 		font-weight: 600;
 		font-size: 48px;
+	}
+
+	.addReview {
+		position: absolute;
+		right: 340px;
+		color: #007AFF;
+		cursor: pointer;
 	}
 </style>

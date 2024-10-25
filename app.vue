@@ -1,9 +1,4 @@
 <script setup lang="ts">
-	const { $GetDialog } = useNuxtApp();
-
-
-	//DATA
-	const components = $GetDialog();
 </script>
 
 <template>
@@ -11,9 +6,7 @@
 		<Header />
 		<NuxtPage />
 		<Footer />
-		<div v-if="components.length > 0">
-			<Dialog />
-		</div>
+		<Dialog />
 	</div>
 </template>
 
@@ -23,6 +16,5 @@
 	body {
 		font-family: 'Inter', sans-serif;
 		width: 100%;
-		/* padding: 48px; */
 	}
 </style>

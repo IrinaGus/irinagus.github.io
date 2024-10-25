@@ -1,7 +1,4 @@
 <script setup>
-	import photoSrc from '@/assets/Yukino.jpg';
-
-
 	//DATA
 	const paragraphs = [
 	{ text: "ユキについて", className: "headerText" },
@@ -29,59 +26,63 @@
 </script>
 
 <template>
-	<div>
-		<div class="aboutPage">
-			<div class="bigLabelField">
-				<div class="bigLabel">雪ちゃんについて</div>
-				<ReviewsStars :star="averageStars" />
+	<div class="aboutPage">
+		<div class="bigLabelField">
+			<div class="bigLabel">雪ちゃんについて</div>
+			<div class="stars">
+				<ReviewsStars :star="averageStars" color="fill"/>
 				<div>{{ averageStars }}</div>
-			</div>	
-			<div class="aboutContent">
-				<img :src="photoSrc" alt="photo" class="bigAva" />
-				<div class="aboutContentText">
-					<p
-						v-for="(item, index) in paragraphs"
-						:key="index"
-						:class="item.className"
-						class="paragraph"
-						>
-						{{ item.text }}
-						</p>
-				</div>
-			</div>		
-		</div>
+			</div>
+		</div>	
+		<div class="aboutContent">
+			<img src="@/assets/Yukino.jpg" alt="photo" class="bigAva" />
+			<div class="aboutContentText">
+				<p
+					v-for="(item, index) in paragraphs"
+					:key="index"
+					:class="item.className"
+					class="paragraph"
+					>
+					{{ item.text }}
+					</p>
+			</div>
+		</div>	
+		<PhotosWidget />
+		<ReviewsWidget />	
 	</div>
 </template>
 
 <style scoped>
 	.aboutPage {
-		padding-top: 48px;
-		padding-left: 48px;
-		padding-right: 48px;
-		background-color: lightgoldenrodyellow;
+		padding: 48px 48px 0;
+		justify-content: center;
 	}
 
 	.bigLabelField {
 		height: 100px;
-		padding-top: 21px;
-		padding-bottom: 21px;
-		padding-left: 503px;
-		padding-right: 503px;
+		padding: 21px 503px;
 		gap: 10px;
-		background-color: bisque;
-		display: flex;
-		justify-content: center;
+		display: grid;            
+  		place-items: center;
+		position: relative;
 	}
 
 	.bigLabel {
 		font-weight: 600;
 		font-size: 48px;
-		line-height: 58.09px;
+	}
+
+	.stars {
+		width: 160px;
+		display: flex;
+		justify-content: space-between;
+		place-items: center;
+		position: absolute;
+		right: 0;
 	}
 
 	.aboutContent {
 		gap: 48px;
-		background-color: azure;
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
@@ -96,13 +97,13 @@
 
 	.aboutContentText {
 		gap: 16px;
-		background-color: lightgray;
 	}
 
 	.headerText {
 		font-weight: 700;
 		font-size: 20px;
 		line-height: 40px;
+		padding-top: 30px;
 	}
 
 	.restText {
@@ -112,6 +113,6 @@
 	}
 
 	.paragraph {
-		margin: 20px 0;
+		margin: 0;
 	}
 </style>

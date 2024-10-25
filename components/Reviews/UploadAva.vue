@@ -25,7 +25,6 @@
 			reader.readAsDataURL(file);
 		}
 	};
-
 	
 </script>
   
@@ -33,8 +32,9 @@
 <template>
 	<div>
 		<div @click="triggerFileInput" class="upload-area">
-			<img v-if="image" :src="image" alt="uploadedAva" width="100" />
-			<img v-else :src='ava' alt="dummyAva"/>
+			<img :src="image ? image : ava" 
+				:alt="image ? 'uploadedAva' : 'dummyAva'" 
+				:width="image ? 100 : ''" />
 		</div>
 		<input type="file" ref="fileInput" @change="onFileChange" 
 			style="display: none;" accept="image/*" />

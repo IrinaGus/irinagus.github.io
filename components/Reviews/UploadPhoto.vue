@@ -1,43 +1,34 @@
 <script setup>
 	const emit = defineEmits(['uploadedPhoto']);
-	
-  
-	//DATA
-	const { $PhotosGet } = useNuxtApp();
-	const photos = $PhotosGet();
-	const maxId = photos.length > 0 ? Math.max(...photos.map(photo => photo.id)) : 0;
+	const { $PhotosAdd } = useNuxtApp();
 
-	const newPhoto = ref({
-		id: null,
-		src: '',
-		alt: '',
-	});
-
-	const image = ref(null);
-	const fileInput = ref(null); 
-  
 
 	//METHODS
-	const triggerFileInput = () => {
-		fileInput.value.click(); 
-	};
-  
-	const onFileChange = (event) => {
-		const file = event.target.files[0];
+	const triggerFileInput = async () => {
+		try {
+			const [fileHandle] = await window.showOpenFilePicker({
+				types: [
+					{
+						description: 'Images',
+						accept: {
+							'image/*': ['.png', '.jpg', '.jpeg', '.gif']
+						}
+					}
+				],
+				excludeAcceptAllOption: true,
+				multiple: false
+			});
+			const file = await fileHandle.getFile();
 
-		if (file) {
 			const reader = new FileReader();
 			reader.onload = (e) => {
-				image.value = e.target.result; 
-
-				if (image.value) {
-					newPhoto.value.src = image.value;
-					newPhoto.value.id = maxId + 1;
-					photos.push({ ...newPhoto.value })
-					emit('uploadedPhoto', image.value, newPhoto.value.id);
-				}	
+				emit('uploadedPhoto', $PhotosAdd(e.target.result));
 			};
+
 			reader.readAsDataURL(file);
+			
+		} catch (error) {
+			console.error("File selection cancelled or error occurred:", error);
 		}
 	};
 </script>
@@ -50,8 +41,6 @@
 				写真を追加
 			</div>
 		</div>
-		<input type="file" ref="fileInput" @change="onFileChange" 
-			style="display: none;" accept="image/*" />
 	</div>
 </template>
 

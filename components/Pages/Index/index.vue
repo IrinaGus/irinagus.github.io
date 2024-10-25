@@ -1,10 +1,7 @@
 <script setup>
-	import photoSrc from '@/assets/Yukino.jpg';
-	import { useRouter } from 'vue-router';
-	import ReviewsShort from '~/components/Reviews/ReviewsShort.vue';
-
+	//DATA
 	const router = useRouter();
-	const reviewsToShow = 2;
+
 
 	//METHODS
 	const aboutPage = () => {
@@ -19,7 +16,7 @@
 				<div class="bigLabel">雪ちゃん</div>
 			</div>
 			<div class="shortAbout">
-				<img :src="photoSrc" alt="photo" class="bigAva" />
+				<img src="@/assets/Yukino.jpg" alt="photo" class="bigAva" />
 				<div class="introContent">
 					<div class="introContentText">
 						こんにちは！このかわいい白いポメラニアンの名前はユキ（雪）です。名前の通り、彼女はふわふわの白い毛を持ち、まるで小さな雪のかたまりのようです。ユキはとても優しく、みんなの心を癒す存在です。散歩のときには、彼女の小さな足で元気に歩き、多くの人を笑顔にしています。もし可愛らしいポメラニアンに興味があれば、ぜひ彼女のストーリーをフォローしてみてください！
@@ -32,32 +29,20 @@
 				</div>
 			</div>
 		</div>
-		<div class="photoBlock">
-			<PhotosPhotoShort />
-		</div>
-		<div class="reviewBlock">
-			<ReviewsShort />
-		</div>
+		<PhotosWidget />
+		<ReviewsWidget />
 	</div>
 </template>
 
 <style scoped>
 	.intro {
 		height: 448px;
-		padding-top: 48px;
-		padding-left: 48px;
-		padding-right: 48px;
-		background-color: aquamarine;
-		
+		padding: 48px 48px 0;
 	}
 
 	.bigLabelField {
 		height: 100px;
-		padding-top: 21px;
-		padding-bottom: 21px;
-		padding-left: 503px;
-		padding-right: 503px;
-		background-color: bisque;
+		padding: 21px 503px;
 		display: grid;            
   		place-items: center;
 	}
@@ -65,10 +50,10 @@
 	.bigLabel {
 		font-weight: 600;
 		font-size: 48px;
+		color: #1C1C1C;
 	}
 
 	.shortAbout {
-		background-color: aqua;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -82,16 +67,16 @@
 	.introContent {
 		display: flex;
 		justify-content: center;
-		flex-direction: column;
+		flex-direction: column; 
 		align-items: center;
-		justify-content: space-between;
+		justify-content: space-between; 
 	}
 
 	.introContentText {
 		font-weight: 400;
 		font-size: 20px;
 		line-height: 40px;
-		padding-left: 50px;
+		padding-left: 40px;
 	}
 
 	.aboutButtom {

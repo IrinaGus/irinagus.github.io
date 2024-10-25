@@ -7,7 +7,6 @@
 		text: '',
 		stars: null,
 		ava: null,
-		photo: null,
 		photoid: null,
 	});
 
@@ -22,26 +21,30 @@
 		newReview.value.text = ''
 		
 
-		$RemoveDialog()
+		$RemoveDialog("Add")
 	}
 
-	const starClick = (index) => {
-		newReview.value.stars = index
+	const starClick = (stars) => {
+		newReview.value.stars = stars
 	}
 
 	const reviewersAva = (ava) => {
 		newReview.value.ava = ava
 	}
 
-	const reviewersPhoto = (photo, id) => {
-		newReview.value.photo = photo
+	const reviewersPhoto = (id) => {
 		newReview.value.photoid = id
+	}
+
+	const close = () => {
+		$RemoveDialog("Add");
 	}
 
 </script>
 
 <template>
 	<div class="field">
+		<div class="close" @click="close">x</div>
 		<div class="labelField">
 			<div class="label">レビューを書く</div> 
 		</div>
@@ -51,13 +54,13 @@
 			</div>
 			<div class="inputField">
 				<div class="namestars">
-					<input class="name" placeholder="名前" 
-						v-model="newReview.name"/>
+					<input v-model="newReview.name" placeholder="名前" 
+						type="text" class="name" />
 					<ReviewsStars :star="5" color="empty" 
-						@selectStar="starClick"/>
+						@selectStars="starClick"/>
 				</div>
-				<input class="review" placeholder="レビュー" 
-						v-model="newReview.text"/>
+				<input v-model="newReview.text" placeholder="レビュー" 
+					type="text" class="review" />
 				<div class="buttons">
 					<ReviewsUploadPhoto @uploadedPhoto="reviewersPhoto" />
 					<div class="save" @click="saveReview">
@@ -72,28 +75,31 @@
 
 <style scoped>
 	.field {
-		width: 748px;
-		height: 344px;
+		width: 700px;
 		border-radius: 24px;
-		padding-left: 24px;
-		padding-right: 24px;
-		padding-top: 36px;
-		padding-bottom: 36px;
+		padding: 36px 24px;
 		position: relative;
-
 	}
 
-	.labelField {
-		width: 700px;
-		height: 36px;
+	.labelField {	
 		display: flex;
 		align-items: center; 
 		justify-content: center;
 	}
 
 	.label {
+		height: 36px;
 		font-size: 24px;
 		font-weight: 400;
+	}
+
+	.close {
+		position: absolute;
+		top: 10px;
+		right: 15px;
+		font-size: 24px;
+		font-weight: 400;
+		cursor: pointer;
 	}
 
 	.contentField {
@@ -117,7 +123,6 @@
 
 	.inputField {
 		width: 604px;
-		height: 212px;
 		gap: 12px;
 	}
 
@@ -133,8 +138,8 @@
 		border-width: 1px;
 		border-style: solid;
 		border-color: #007AFF;
-		padding-left: 16px;
-		padding-right: 16px;
+		padding: 0 16px;
+		margin-bottom: 10px;
 	}
 
 	.name::placeholder {
@@ -146,17 +151,15 @@
 	}
 
 	.review {
-		width: 550px;
+		width: 572px;
 		height: 92px;
 		border-radius: 12px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: #007AFF;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		padding-right: 16px;
-		padding-left: 16px;
+		padding: 5px 16px;
 		gap: 10px;
+		margin-bottom: 10px;
 
 	}
 
@@ -174,11 +177,10 @@
 	}
 
 	.save {
-		width: 144px;
+		width: 48px;
 		height: 50px;
 		border-radius: 16px;
-		padding-right: 48px;
-		padding-left: 48px;
+		padding: 0 48px;
 		gap: 10px;
 		background-color: #007AFF;
 		display: flex;

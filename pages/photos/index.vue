@@ -1,5 +1,3 @@
 <template>
-	<div>
-		<PagesPhotos />
-	</div>
+	<PagesPhotos />
 </template>

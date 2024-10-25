@@ -6,18 +6,26 @@
 
 	//DATA
 	const router = useRouter();
-	const { $ReviewsGet } = useNuxtApp();
+	const { $ReviewsGet, $PhotosGet } = useNuxtApp();
 	const reviews = $ReviewsGet();
-	const displayedReviews = computed(() => {
-    	return reviews.slice(0, props.count);	
-  	});
+	const photos = $PhotosGet();
 
 
 	//METHODS
 	const selectPhoto = (id) => {
 		router.push({name: "photos", query: {id}})	
 	};
+
+	const displayPhoto = (photoid) => {
+		const photo = photos.find(p => p.id === photoid);
+		return photo ? photo.src : null;
+	};
 	  
+
+	//COMPUTEDS
+	const displayedReviews = computed(() => {
+		return props.count ? reviews.slice(0, props.count) : reviews;
+  	});
 </script>
 
 <template>
@@ -29,11 +37,11 @@
 			<img :src="item.ava" class="ava">
 			<div>
 				<div class="header">
-					<div>{{ item.name }}</div>
+					<div class="name">{{ item.name }}</div>
 					<ReviewsStars :star="item.stars" color="fill" />
 				</div>				
 				<div class="text">{{ item.text }}</div>
-				<img v-if="item.photo" :src="item.photo" class="photo"
+				<img v-if="displayPhoto(item.photoid)" :src="displayPhoto(item.photoid)" class="photo"
 					@click="selectPhoto(item.photoid)">
 			</div>
 		</div> 
@@ -47,21 +55,27 @@
   		place-items: center;
 	}
 
+	.review {
+		width: 700px;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 24px;
+	}
+
 	.ava {
 		width: 72px;
 		height: 72px;
 		border-radius: 100px;
 	}
 
-	.review {
-		width: 700px;
+	.header {
 		display: flex;
 		justify-content: space-between;
 	}
 
-	.header {
-		display: flex;
-		justify-content: space-between;
+	.name {
+		font-size: 24px;
+		font-weight: 400;
 	}
 
 	.text {

@@ -25,8 +25,7 @@
 	const select = (id) => {
 
 		const newIndex = props.items.findIndex(item => item.id === id)
-		console.log(props.items)
-		console.log(id)
+
 		if (newIndex === -1) return
 	
 		index.value = newIndex
@@ -61,19 +60,18 @@
 </script>
 
 <template>
-	<div>
-		<div class="bigField">
-			<div class="arrow" @click="next('left')"><</div>
-			<img :src="props.items[index]?.src" class="Photo"/>
-			<div class="arrow" @click="next('right')">></div>
-		</div>
+	<div class="bigField">
+		<div class="arrow" @click="next('left')"><</div>
+		<img :src="props.items[index]?.src" class="Photo"/>
+		<div class="arrow" @click="next('right')">></div>
 	</div>
 </template>
 
 <style scoped>
 	.bigField {
-		  display: flex;
-		  justify-content: space-between;
+		display: flex;
+		justify-content: space-between;
+		place-items: center;
 	}
 
 	.Photo {

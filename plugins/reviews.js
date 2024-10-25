@@ -12,7 +12,6 @@ export default defineNuxtPlugin(() => {
 			name: '田中',
 			ava: ava1,
 			stars: 5,
-			photo: photo1,
 			photoid: 3 },
 		{alt: 'Review 2', 
 			text: 'ユキちゃんは完璧なパートナーです！彼女はとても賢くて、お座りや待ての指示をすぐに覚えました。それに、彼女と一緒にいるときはいつも幸せな気持ちになります。彼女の笑顔を見るたびに、疲れが吹き飛びます。友達にもユキちゃんを自慢したくなります！',

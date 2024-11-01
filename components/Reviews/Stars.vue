@@ -1,57 +1,65 @@
 <script setup>
-	import fillstar from '@/assets/icons/star.svg'
-	import emptystar from '@/assets/icons/emptystar.svg'
-
+	import { onMounted } from 'vue';
 	const props = defineProps({
   		star: Number, 
-		color: String 
+		newReview: {
+			type: Object,
+			required: true,
+		}, 
+		defaultColor: {
+			type: String,
+			default: '#FAE100'
+		},
 	});
 	const emit = defineEmits(['selectStars']);
 
-
-	//DATA
-	const roundedStars = Math.round(props.star);
-	const hoveredStar = ref(null);
-	const selectedStar = ref(null);
-
-
 	//METHODS
-	const mouseUnder = (index) => {
-		hoveredStar.value = index; 
-	}
+	onMounted(() => {
+		document.querySelectorAll('.star-rating .star').forEach((star, index, stars) => {
+			star.addEventListener('click', () => {
+				stars.forEach((s) => s.classList.remove('selected'));
+				
+				for (let i = stars.length - 1; i >= index; i--) {
+					stars[i].classList.add('selected');
+				}
 
-	const mouseLeave = () => {
-		hoveredStar.value = null;
-	};
-
-	const getStarImg = (index) => {
-		if ((hoveredStar.value !== null && index <= hoveredStar.value)
-			|| (selectedStar.value !== null && index <= selectedStar.value) 
-			|| (props.color == 'fill')
-		) {
-			return fillstar;
-		} else {
-			return emptystar;
-		}
-	};
-
-	const selectStar = (index) => {
-		selectedStar.value = index;
-		emit('selectStars', selectedStar.value + 1);
-	};
+				emit('selectStars', star.getAttribute('data-value'));
+			});
+		});
+	});
 </script>
 
 <template>
-	<div @mouseleave="mouseLeave">
-		<img
-			v-for="index in roundedStars"  
-			:key="'star' + index"        
-			:src="getStarImg(index - 1)"              
-			alt="Star"                  
-			width="24"                  
-			height="24"  
-			@mouseenter="() => mouseUnder(index - 1)"   
-			@click="selectStar(index - 1)"           
-		/>
+	<div class="star-rating">
+		<span class="star"
+            v-for="value in props.star"
+            :data-value="props.star - value + 1">
+            &#9733;
+        </span>
 	</div>
 </template>
+
+<style scoped>
+	.star-rating {
+		display: flex;
+		cursor: pointer;
+	}
+
+	.star {
+		font-size: 2rem;
+		color: #fdf5c6;
+		transition: color 0.2s;
+		text-shadow: 0 0 1px #FAE100,
+					0 0 2px #FAE100,
+					0 0 3px #FAE100;
+	}
+
+	.star.selected {
+		color: #FAE100;
+	}
+
+	.star:hover,
+	.star:hover ~ .star {
+		color: #FAE100;
+	}
+</style>

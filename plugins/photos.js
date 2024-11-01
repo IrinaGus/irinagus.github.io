@@ -14,12 +14,6 @@ export default defineNuxtPlugin(() => {
 	  { id: 5, src: photo5, alt: 'Photo 5' },
 	]);
 
-	const newPhoto = ref({
-		id: null,
-		src: '',
-		alt: '',
-	});
-	const maxId = photos.length > 0 ? Math.max(...photos.map(photo => photo.id)) : 0;
 
   
 	const get = () => {
@@ -27,6 +21,13 @@ export default defineNuxtPlugin(() => {
 	};
 
 	const add = (item) => {
+		const newPhoto = ref({
+			id: null,
+			src: '',
+			alt: '',
+		});
+		const maxId = photos.length > 0 ? Math.max(...photos.map(photo => photo.id)) : 0;
+	
 		newPhoto.value.src = item;
 		newPhoto.value.id = maxId + 1;
 		photos.push({ ...newPhoto.value })

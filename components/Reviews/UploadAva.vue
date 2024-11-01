@@ -4,8 +4,14 @@
 	const emit = defineEmits(['uploadedAva']);
   
 	//DATA
-	const image = ref(null);
+	// const image = ref(null);
 	const fileInput = ref(null); 
+	const props = defineProps({
+		newReview: {
+			type: Object,
+			required: true,
+		}
+	});
   
 
 	//METHODS
@@ -19,8 +25,7 @@
 		if (file) {
 			const reader = new FileReader();
 			reader.onload = (e) => {
-				image.value = e.target.result; 
-				emit('uploadedAva', image.value);
+				emit('uploadedAva', e.target.result);
 			};
 			reader.readAsDataURL(file);
 		}
@@ -32,9 +37,9 @@
 <template>
 	<div>
 		<div @click="triggerFileInput" class="upload-area">
-			<img :src="image ? image : ava" 
-				:alt="image ? 'uploadedAva' : 'dummyAva'" 
-				:width="image ? 100 : ''" />
+			<img :src="props.newReview.ava ? props.newReview.ava : ava" 
+				:alt="props.newReview.ava ? 'uploadedAva' : 'dummyAva'" 
+				:width="props.newReview.ava ? 100 : ''" />
 		</div>
 		<input type="file" ref="fileInput" @change="onFileChange" 
 			style="display: none;" accept="image/*" />

@@ -24,18 +24,6 @@
 		$RemoveDialog("Add")
 	}
 
-	const starClick = (stars) => {
-		newReview.value.stars = stars
-	}
-
-	const reviewersAva = (ava) => {
-		newReview.value.ava = ava
-	}
-
-	const reviewersPhoto = (id) => {
-		newReview.value.photoid = id
-	}
-
 	const close = () => {
 		$RemoveDialog("Add");
 	}
@@ -50,19 +38,21 @@
 		</div>
 		<div class="contentField">
 			<div class="ava">
-				<ReviewsUploadAva @uploadedAva="reviewersAva"/>
+				<ReviewsUploadAva @uploadedAva="newReview.ava = $event"
+				:newReview="newReview"/>
 			</div>
 			<div class="inputField">
 				<div class="namestars">
 					<input v-model="newReview.name" placeholder="名前" 
 						type="text" class="name" />
-					<ReviewsStars :star="5" color="empty" 
-						@selectStars="starClick"/>
+					<ReviewsStars :newReview="newReview" :star="5"
+					@selectStars="newReview.stars = $event"
+					defaultColor='#f9f494'/>
 				</div>
 				<input v-model="newReview.text" placeholder="レビュー" 
 					type="text" class="review" />
 				<div class="buttons">
-					<ReviewsUploadPhoto @uploadedPhoto="reviewersPhoto" />
+					<ReviewsUploadPhoto @uploadedPhoto="newReview.photoid = $event" />
 					<div class="save" @click="saveReview">
 						<div class="saveLabel">送る</div>
 					</div>

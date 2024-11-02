@@ -14,12 +14,12 @@
 <template>
 	<div class="reviewsPage">
 		<div class="bigLabelField">
-			<div class="bigLabel">
+			<div class="huge-weight">
 				レビュー
 			</div>
 			<div class="addReview" @click="add">+新しい</div>
 		</div>
-		<div><Reviews :count="reviewsToShow"/></div>
+		<Reviews :count="reviewsToShow"/>
 	</div>
 </template>
 
@@ -30,17 +30,12 @@
 
 	.bigLabelField {
 		height: 100px;
-		padding: 21px 503px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		position: relative;
+		box-sizing: border-box;
 		}
-
-	.bigLabel {
-		font-weight: 600;
-		font-size: 48px;
-	}
 
 	.addReview {
 		position: absolute;

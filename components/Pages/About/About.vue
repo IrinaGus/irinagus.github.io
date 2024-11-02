@@ -1,12 +1,12 @@
 <script setup>
 	//DATA
 	const paragraphs = [
-	{ text: "ユキについて", className: "headerText" },
+	{ text: "ユキについて", className: "middle-weight" },
 	{ text: "こんにちは！私たちは愛らしいポメラニアン、ユキ（雪）をご紹介します。ユキはその名前の通り、白くてふわふわの毛を持ち、まるで小さな雪のかたまりのような存在です。彼女は我が家に来てから、すぐに家族の中心的な存在になり、私たちの日々を明るく、幸せなものにしてくれています。", 
-		className: "restText" },
-	{ text: "ユキの性格", className: "headerText" },
+		className: "middle-slim" },
+	{ text: "ユキの性格", className: "middle-weight" },
 	{ text: "ユキはとても優しく、人懐っこい性格です。初めて会う人にもすぐに打ち解け、尻尾を振って挨拶をします。彼女は社交的で、他の犬や人ともすぐに仲良くなります。特に散歩のときは、近所の人たちに会うのが大好きで、みんなから「かわいい！」と言われると、得意げに歩き回ります。", 
-		className: "restText" },
+		className: "middle-slim" },
 	];
 
 	const { $ReviewsGet } = useNuxtApp();
@@ -28,10 +28,10 @@
 <template>
 	<div class="aboutPage">
 		<div class="bigLabelField">
-			<div class="bigLabel">雪ちゃんについて</div>
+			<div class="huge-weight">雪ちゃんについて</div>
 			<div class="stars">
 				<ReviewsStars :star="averageStars" color="fill"/>
-				<div>{{ averageStars }}</div>
+				<div class="numberStars">{{ averageStars }}</div>
 			</div>
 		</div>	
 		<div class="aboutContent">
@@ -61,19 +61,13 @@
 	.bigLabelField {
 		height: 100px;
 		padding: 21px 503px;
-		gap: 10px;
 		display: grid;            
   		place-items: center;
 		position: relative;
-	}
-
-	.bigLabel {
-		font-weight: 600;
-		font-size: 48px;
+		box-sizing: border-box;
 	}
 
 	.stars {
-		width: 160px;
 		display: flex;
 		justify-content: space-between;
 		place-items: center;
@@ -81,10 +75,15 @@
 		right: 0;
 	}
 
+	.numberStars {
+		padding-left: 16px;
+		font-weight: 400;
+		font-size: 20px;
+	}
+
 	.aboutContent {
 		gap: 48px;
 		display: flex;
-		justify-content: center;
 		flex-direction: column;
 		align-items: center;
 	}
@@ -97,19 +96,6 @@
 
 	.aboutContentText {
 		gap: 16px;
-	}
-
-	.headerText {
-		font-weight: 700;
-		font-size: 20px;
-		line-height: 40px;
-		padding-top: 30px;
-	}
-
-	.restText {
-		font-weight: 400;
-		font-size: 20px;
-		line-height: 40px;
 	}
 
 	.paragraph {

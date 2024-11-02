@@ -37,9 +37,9 @@
 <template>
 	<div>
 		<div @click="triggerFileInput" class="uploadArea">
-			<div class="text">
+			<!-- <div class="text"> -->
 				写真を追加
-			</div>
+			<!-- </div> -->
 		</div>
 	</div>
 </template>
@@ -56,9 +56,6 @@
 		display: flex;
 		align-items: center; 
 		justify-content: center;
-	}
-
-	.text {
 		font-size: 20px;
 		color: #007AFF;
 		font-weight: 500;

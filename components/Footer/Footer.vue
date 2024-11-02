@@ -1,7 +1,7 @@
 <template>
 	<div class="footerContainer">
 		<div class="line"></div>
-		<div class="foolLabel">
+		<div class="label">
 			連絡先
 		</div>
 		<div class="icons">
@@ -14,10 +14,11 @@
 
 <style scoped>
 	.footerContainer {
-		height: 74px;
+		height: 200px;
 		padding: 64px 48px;
 		display: grid;            
   		place-items: center;
+		box-sizing: border-box;
 	}
 
 	.line {
@@ -26,7 +27,7 @@
 		width: 100%;
 	}
 
-	.foolLabel {
+	.label {
 		font-size: 16px;
 		font-weight: 500;
 	}

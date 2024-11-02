@@ -34,7 +34,7 @@
 	<div class="field">
 		<div class="close" @click="close">x</div>
 		<div class="labelField">
-			<div class="label">レビューを書く</div> 
+			<div class="big-slim">レビューを書く</div> 
 		</div>
 		<div class="contentField">
 			<div class="ava">
@@ -49,12 +49,12 @@
 					@selectStars="newReview.stars = $event"
 					defaultColor='#f9f494'/>
 				</div>
-				<input v-model="newReview.text" placeholder="レビュー" 
+				<textarea v-model="newReview.text" placeholder="レビュー"
 					type="text" class="review" />
 				<div class="buttons">
 					<ReviewsUploadPhoto @uploadedPhoto="newReview.photoid = $event" />
-					<div class="save" @click="saveReview">
-						<div class="saveLabel">送る</div>
+					<div class="blue" @click="saveReview">
+						送る
 					</div>
 				</div>
 			</div>
@@ -73,14 +73,7 @@
 
 	.labelField {	
 		display: flex;
-		align-items: center; 
 		justify-content: center;
-	}
-
-	.label {
-		height: 36px;
-		font-size: 24px;
-		font-weight: 400;
 	}
 
 	.close {
@@ -94,7 +87,6 @@
 
 	.contentField {
 		display: flex;
-		justify-content: space-between;
 		padding-top: 24px;
 		gap: 24px;
 	}
@@ -111,25 +103,21 @@
 		justify-content: center;
 	}
 
-	.inputField {
-		width: 604px;
-		gap: 12px;
-	}
-
 	.namestars {
 		display: flex;
 		justify-content: space-between;
 	}
 
 	.name {
-		width: 300px;
-		height: 46px;
+		min-width: 300px;
+		min-height: 46px;
 		border-radius: 12px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: #007AFF;
 		padding: 0 16px;
 		margin-bottom: 10px;
+		font-size: 20px;
 	}
 
 	.name::placeholder {
@@ -141,8 +129,8 @@
 	}
 
 	.review {
-		width: 572px;
-		height: 92px;
+		min-width: 572px;
+		min-height: 92px;
 		border-radius: 12px;
 		border-width: 1px;
 		border-style: solid;
@@ -150,6 +138,8 @@
 		padding: 5px 16px;
 		gap: 10px;
 		margin-bottom: 10px;
+		resize: none;
+		font-size: 20px;
 
 	}
 

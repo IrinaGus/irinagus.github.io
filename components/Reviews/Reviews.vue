@@ -35,12 +35,12 @@
 			:key="'review' + index"
 			class="review">
 			<img :src="item.ava" class="ava">
-			<div>
+			<div class="content">
 				<div class="header">
-					<div class="name">{{ item.name }}</div>
+					<div class="big-slim">{{ item.name }}</div>
 					<ReviewsStars :star="item.stars" color="fill" />
 				</div>				
-				<div class="text">{{ item.text }}</div>
+				<div class="tiny">{{ item.text }}</div>
 				<img v-if="displayPhoto(item.photoid)" :src="displayPhoto(item.photoid)" class="photo"
 					@click="selectPhoto(item.photoid)">
 			</div>
@@ -56,10 +56,13 @@
 	}
 
 	.review {
-		width: 700px;
 		display: flex;
-		justify-content: space-between;
 		margin-bottom: 24px;
+		padding: 0 290px;
+	}
+
+	.content {
+		padding-left: 24px;
 	}
 
 	.ava {
@@ -73,20 +76,10 @@
 		justify-content: space-between;
 	}
 
-	.name {
-		font-size: 24px;
-		font-weight: 400;
-	}
-
-	.text {
-		width: 604px;
-		font-weight: 400;
-		font-size: 12px;
-	}
-
 	.photo {
 		border-radius: 12px;
 		width: 100px;
 		height: 100px;
+		padding-top: 12px;
 	}
 </style>

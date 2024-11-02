@@ -1,0 +1,30 @@
+.blue {
+	height: 50px;
+	border-radius: 16px;
+	gap: 10px;
+	background-color: #007AFF;
+	cursor: pointer;
+	display: grid;            
+	place-items: center;
+	font-weight: 500;
+	font-size: 24px;
+	color: #ffffff;
+	padding: 0 120px;
+}
+
+.white {
+	min-width: 300px;
+	height: 50px;
+	border-radius: 16px;
+	gap: 10px;
+	border: 1px;
+	border-color: #007AFF;
+	border-style: solid;
+	cursor: pointer;
+	display: grid;            
+	place-items: center;
+	font-weight: 500;
+	font-size: 20px;
+	color: #007AFF;
+	margin-top: 24px;
+}

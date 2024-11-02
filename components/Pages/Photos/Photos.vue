@@ -17,21 +17,17 @@
 <template>
 	<div class="photoPage">
 		<div class="bigLabelField">
-			<div class="bigLabel">
+			<div class="huge-weight">
 				写真
 			</div>
 		</div>
-		<div class="bigPhotoBlock">
-			<PagesPhotosPreview ref="refPreview" :items="photos"/>
-		</div>
+		<PagesPhotosPreview ref="refPreview" :items="photos"/>
 		<div class="smallLabelField">
-			<div class="smallLabel">
+			<div class="huge-slim">
 				写真12枚
 			</div>
 		</div>
-		<div class="allPhotos">
-			<Photos @loaded="fetchPhotos" @select="selectPhoto" />
-		</div>
+		<Photos @loaded="fetchPhotos" @select="selectPhoto" />
 	</div>
 </template>
 
@@ -43,15 +39,10 @@
 	.bigLabelField {
 		height: 100px;
 		padding: 21px 503px;
-		display: grid;            
   		place-items: center;
+		box-sizing: border-box;
 		}
 
-	.bigLabel {
-		font-weight: 600;
-		font-size: 48px;
-		color: #1C1C1C;
-	}
 
 	.bigPhotoBlock {
 		padding: 0 120px;
@@ -59,17 +50,8 @@
 
 	.smallLabelField {
 		height: 148px;
-		display: grid;            
-  		place-items: center;
-	}
-
-	.smallLabel {
-		font-weight: 400;
-		font-size: 36px;
-	}
-
-	.allPhotos {
-		padding: 0 80px;
-		gap: 48px;
+		display: flex;
+		place-items: center;
+		justify-content: center;
 	}
 </style>

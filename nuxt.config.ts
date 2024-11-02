@@ -3,5 +3,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   ssr: true,
-  app: {baseURL: "/"}
+  app: {baseURL: "/"},
+  css: [ '@/styles/Text.css', '@/styles/Buttons.css' ]
 })

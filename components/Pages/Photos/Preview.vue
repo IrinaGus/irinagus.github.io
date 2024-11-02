@@ -11,8 +11,7 @@
 
 
 	//METHODS
-	const init = () => {
-		
+	const init = () => {		
 		if (props.items.length) {
 			if (route.query.id) {
 				select(parseInt(route.query.id))
@@ -23,15 +22,12 @@
 	}
 
 	const select = (id) => {
-
 		const newIndex = props.items.findIndex(item => item.id === id)
-
-		if (newIndex === -1) return
-	
+		if (newIndex === -1) return	
 		index.value = newIndex
 	}
 
-	const next = (side) => {
+	const arrow = (side) => {
 		if (side === 'right') {
 			if (index.value < props.items.length - 1) {
 				index.value++;
@@ -61,9 +57,9 @@
 
 <template>
 	<div class="bigField">
-		<div class="arrow" @click="next('left')"><</div>
+		<div class="arrow" @click="arrow('left')"><</div>
 		<img :src="props.items[index]?.src" class="Photo"/>
-		<div class="arrow" @click="next('right')">></div>
+		<div class="arrow" @click="arrow('right')">></div>
 	</div>
 </template>
 
@@ -72,6 +68,7 @@
 		display: flex;
 		justify-content: space-between;
 		place-items: center;
+		padding: 0 120px;
 	}
 
 	.Photo {

@@ -30,7 +30,6 @@
 			reader.readAsDataURL(file);
 		}
 	};
-	
 </script>
   
 
@@ -39,7 +38,8 @@
 		<div @click="triggerFileInput" class="upload-area">
 			<img :src="props.newReview.ava ? props.newReview.ava : ava" 
 				:alt="props.newReview.ava ? 'uploadedAva' : 'dummyAva'" 
-				:width="props.newReview.ava ? 100 : ''" />
+				:width="props.newReview.ava ? 100 : ''" 
+				:class="{ realAva: props.newReview.ava }"/>
 		</div>
 		<input type="file" ref="fileInput" @change="onFileChange" 
 			style="display: none;" accept="image/*" />
@@ -58,6 +58,12 @@
 		display: flex;
 		align-items: center; 
 		justify-content: center;
+	}
+
+	.realAva {
+		border-radius: 100px;
+		width: 75px;
+		height: 75px;
 	}
 </style>
   

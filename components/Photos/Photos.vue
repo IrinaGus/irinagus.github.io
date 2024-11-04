@@ -10,7 +10,7 @@
 	const photos = $PhotosGet();
 
 	const displayedPhotos = computed(() => {
-    	return props.count ? photos.slice(0, props.count) : photos;
+    	return props.count ? photos.slice(-props.count) : photos;
   	});
 
 
@@ -28,7 +28,7 @@
 <template>
 	<div class="photos">
 		<img 
-			v-for="(item, index) of displayedPhotos" 
+			v-for="(item, index) of displayedPhotos.slice().reverse()" 
 			:key="'photo' + index" 
 			:src="item.src"
 			@click="emit('select', item.id)"
@@ -49,5 +49,6 @@
 		height: 200px;
 		width: 200px;
 		border-radius: 12px;
+		object-fit: cover;
 	}
 </style>

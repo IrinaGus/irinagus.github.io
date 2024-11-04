@@ -13,7 +13,6 @@
 	const reviews = reactive([...$ReviewsGet()]);
 	
 	
-	
 	//METHODS 
 	const calculateAverageStars = (reviews) => {
 		if (reviews.length === 0) return 0;
@@ -21,8 +20,7 @@
 		return (sum / reviews.length).toFixed(1);
 	};
 
-	const averageStars = calculateAverageStars(reviews);
-	
+	const averageStars = parseFloat(calculateAverageStars(reviews));
 </script>
 
 <template>
@@ -30,7 +28,7 @@
 		<div class="bigLabelField">
 			<div class="huge-weight">雪ちゃんについて</div>
 			<div class="stars">
-				<ReviewsStars :star="averageStars" color="fill"/>
+				<ReviewsStars :star=averageStars />
 				<div class="numberStars">{{ averageStars }}</div>
 			</div>
 		</div>	

@@ -2,6 +2,7 @@
 	//DATA
 	const { $AddDialog } = useNuxtApp();
 	const addReview = markRaw(resolveComponent('ReviewsAdd'))
+	const reviewsToShow = 100;
 
 
 	//METHODS

@@ -72,9 +72,9 @@
 	}
 
 	.Photo {
-		width: 500px;
 		height: 500px;
 		border-radius: 12px;
+		object-fit: cover;
 	}
 
 	.arrow {

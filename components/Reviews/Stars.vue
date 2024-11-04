@@ -1,41 +1,21 @@
 <script setup>
-	import { onMounted } from 'vue';
 	const props = defineProps({
   		star: Number, 
-		newReview: {
-			type: Object,
-			required: true,
-		}, 
-		defaultColor: {
-			type: String,
-			default: '#FAE100'
-		},
 	});
-	const emit = defineEmits(['selectStars']);
 
-	//METHODS
-	onMounted(() => {
-		document.querySelectorAll('.star-rating .star').forEach((star, index, stars) => {
-			star.addEventListener('click', () => {
-				stars.forEach((s) => s.classList.remove('selected'));
-				
-				for (let i = stars.length - 1; i >= index; i--) {
-					stars[i].classList.add('selected');
-				}
-
-				emit('selectStars', star.getAttribute('data-value'));
-			});
-		});
-	});
+	//DATA
+	const WholeStars = Math.floor(props.star);
+	const hasHalfStar = computed(() => props.star % 1 !== 0);
 </script>
 
 <template>
 	<div class="star-rating">
-		<span class="star"
-            v-for="value in props.star"
-            :data-value="props.star - value + 1">
+		<span v-for="index in WholeStars"
+			:key="index"
+			class="star">
             &#9733;
         </span>
+		<span v-if="hasHalfStar" class="star half">&#9733;</span>
 	</div>
 </template>
 
@@ -47,19 +27,12 @@
 
 	.star {
 		font-size: 2rem;
-		color: #fdf5c6;
-		transition: color 0.2s;
-		text-shadow: 0 0 1px #FAE100,
-					0 0 2px #FAE100,
-					0 0 3px #FAE100;
-	}
-
-	.star.selected {
 		color: #FAE100;
 	}
 
-	.star:hover,
-	.star:hover ~ .star {
-		color: #FAE100;
+	.star.half {
+		background: linear-gradient(90deg, #FAE100 50%, #ddd 50%);
+		background-clip: text;
+		color: transparent;
 	}
 </style>

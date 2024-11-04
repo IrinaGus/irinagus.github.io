@@ -37,9 +37,7 @@
 <template>
 	<div>
 		<div @click="triggerFileInput" class="uploadArea">
-			<!-- <div class="text"> -->
-				写真を追加
-			<!-- </div> -->
+			写真を追加
 		</div>
 	</div>
 </template>

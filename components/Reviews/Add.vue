@@ -16,13 +16,12 @@
 		if (newReview.value.name && newReview.value.text) {
 			reviews.push({ ...newReview.value });
 		}
-		
 		newReview.value.name = ''
 		newReview.value.text = ''
 		
-
 		$RemoveDialog("Add")
 	}
+	
 
 	const close = () => {
 		$RemoveDialog("Add");
@@ -45,9 +44,7 @@
 				<div class="namestars">
 					<input v-model="newReview.name" placeholder="名前" 
 						type="text" class="name" />
-					<ReviewsStars :newReview="newReview" :star="5"
-					@selectStars="newReview.stars = $event"
-					defaultColor='#f9f494'/>
+					<ReviewsRationSet @selectStars="newReview.stars = $event"/> 
 				</div>
 				<textarea v-model="newReview.text" placeholder="レビュー"
 					type="text" class="review" />

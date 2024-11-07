@@ -28,7 +28,7 @@
 	}
 
 	const arrow = (side) => {
-		if (side === 'right') {
+		if (side === 'left') {
 			if (index.value < props.items.length - 1) {
 				index.value++;
 			} else {
@@ -36,7 +36,7 @@
 			}
 		}
 
-		if (side === 'left') {
+		if (side === 'right') {
 			if (index.value > 0) {
 				index.value--;
 			} else {

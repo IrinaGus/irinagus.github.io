@@ -16,5 +16,6 @@
 	body {
 		font-family: 'Inter', sans-serif;
 		width: 100%;
+		margin: 0;
 	}
 </style>

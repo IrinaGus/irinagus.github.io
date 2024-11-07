@@ -26,6 +26,7 @@
 		display: flex;
 		justify-content: space-between;
 	}
+
 	.miniAva {
 		width: 50px;
 		height: 50px;
@@ -36,7 +37,7 @@
 		gap: 40px;
 		display: flex;
 		justify-content: space-between;
-		}
+	}
 
 	.link:hover {
 		color: #007AFF;
@@ -44,5 +45,26 @@
 
 	.active-link {
 		color: #007AFF;
+	}
+
+	@media (max-width: 700px) {
+		.headerContainer {
+			display: flex;
+			justify-content: space-between;
+			padding: 10px 10px;
+			box-sizing: border-box;
+		}
+
+		.miniLabel {
+			gap: 20px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.linksBlock {
+			gap: 10px;
+			display: flex;
+			justify-content: space-between;
+		}
 	}
 </style>

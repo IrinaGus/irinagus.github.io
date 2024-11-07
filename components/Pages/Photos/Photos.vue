@@ -54,4 +54,18 @@
 		place-items: center;
 		justify-content: center;
 	}
+
+	@media (max-width: 700px) {
+		.photoPage {
+			padding: 34px 28px 0;
+			box-sizing: border-box;
+		}
+
+		.bigLabelField {
+			height: 70px;
+			padding: 21px 150px;
+			place-items: center;
+			box-sizing: border-box;
+		}
+	}
 </style>

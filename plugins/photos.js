@@ -15,10 +15,12 @@ export default defineNuxtPlugin(() => {
 	]);
 
 
-  
+
 	const get = () => {
 		return photos; 
 	};
+
+
 
 	const add = (item) => {
 		const newPhoto = ref({
@@ -26,10 +28,10 @@ export default defineNuxtPlugin(() => {
 			src: '',
 			alt: '',
 		});
-		const maxId = photos.length > 0 ? Math.max(...photos.map(photo => photo.id)) : 0;
 	
+
 		newPhoto.value.src = item;
-		newPhoto.value.id = maxId + 1;
+		newPhoto.value.id = crypto.randomUUID();
 		photos.push({ ...newPhoto.value })
 		return newPhoto.value.id
 	}

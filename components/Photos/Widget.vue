@@ -10,6 +10,7 @@
 	};
 
 	const selectPhoto = (id) => {
+		console.log('from widget', id)
 		router.push({name: "photos", query: {id}})	
 	};
 </script>
@@ -38,5 +39,14 @@
 		height: 100px;
 		padding: 21px 503px;
 		box-sizing: border-box;
+	}
+
+	@media (max-width: 360px) {
+		.photoblock {
+			width: 100%;
+			padding: 44px 28px 0 28px;
+			display: grid;            
+  			place-items: center;
+		}
 	}
 </style>

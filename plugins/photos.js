@@ -20,8 +20,6 @@ export default defineNuxtPlugin(() => {
 		return photos; 
 	};
 
-
-
 	const add = (item) => {
 		const newPhoto = ref({
 			id: null,

@@ -52,43 +52,16 @@
 
 <style scoped>
 	.aboutPage {
-		padding: 48px 48px 0;
 		justify-content: center;
 	}
 
-	.bigLabelField {
-		height: 100px;
-		padding: 21px 503px;
-		display: grid;            
-  		place-items: center;
-		position: relative;
-		box-sizing: border-box;
-	}
-
-	.stars {
-		display: flex;
-		justify-content: space-between;
-		place-items: center;
-		position: absolute;
-		right: 0;
-	}
-
-	.numberStars {
-		padding-left: 16px;
-		font-weight: 400;
-		font-size: 20px;
-	}
-
 	.aboutContent {
-		gap: 48px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
 	.bigAva {
-		width: 300px;
-		height: 300px;
 		border-radius: 12px;
 	}
 
@@ -98,5 +71,73 @@
 
 	.paragraph {
 		margin: 0;
+	}
+
+	@media (max-width: 700px) {
+		.aboutPage {
+			padding: 14px 14px 0;
+		}
+
+		.bigLabelField {
+			display: grid;
+        	justify-content: center;
+			height: 60px;
+		}
+
+		.numberStars {
+			padding-left: 6px;
+			font-weight: 400;
+			font-size: 10px;
+		}
+
+		.stars {
+			display: flex;
+			place-items: center;
+			justify-content: center;
+		}
+
+		.bigAva {
+			width: 200px;
+			height: 200px;
+		}
+
+		.aboutContent {
+			gap: 20px;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.bigLabelField {
+			display: flex;
+			justify-content: center;
+			height: 100px;
+		}
+
+		.aboutPage {
+			padding: 48px 48px 0;
+		}
+
+		.stars {
+			display: flex;
+			justify-content: space-between;
+			place-items: center;
+			position: absolute;
+			right: 0;
+		}
+
+		.numberStars {
+			padding-left: 16px;
+			font-weight: 400;
+			font-size: 20px;
+		}
+
+		.bigAva {
+			width: 300px;
+			height: 300px;
+		}
+
+		.aboutContent {
+			gap: 48px;
+		}
 	}
 </style>

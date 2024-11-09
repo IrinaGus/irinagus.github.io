@@ -14,8 +14,6 @@
 
 <style scoped>
 	.footerContainer {
-		height: 200px;
-		padding: 64px 48px;
 		display: grid;            
   		place-items: center;
 		box-sizing: border-box;
@@ -27,20 +25,46 @@
 		width: 100%;
 	}
 
-	.label {
-		font-size: 16px;
-		font-weight: 500;
-	}
-
 	.icons {
 		display: flex;
 		justify-content: space-between;
 		gap: 16px;
 	}
 
-	img {
-		width: 24px;
-		height: 24px;
-		opacity: 50%;
+
+	@media (max-width: 700px) {
+		.footerContainer {
+			height: 50px;
+			padding: 30px 12px;
+		}
+
+		.label {
+			font-size: 9px;
+			font-weight: 300;
+		}
+
+		img {
+			width: 10px;
+			height: 10px;
+			opacity: 50%;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.footerContainer {
+			height: 200px;
+			padding: 64px 48px;
+		}
+
+		.label {
+			font-size: 16px;
+			font-weight: 500;
+		}
+
+		img {
+			width: 24px;
+			height: 24px;
+			opacity: 50%;
+		}
 	}
 </style>

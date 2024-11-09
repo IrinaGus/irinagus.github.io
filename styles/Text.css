@@ -1,14 +1,12 @@
 .huge-weight {
     font-family: 'Inter', sans-serif;
     color: #1C1C1C;
-    font-size: 48px;
 	font-weight: 600;
 }
 
 .huge-slim {
 	font-family: 'Inter', sans-serif;
     color: #1C1C1C;
-    font-size: 36px;
 	font-weight: 400;
 }
 
@@ -23,7 +21,6 @@
 .middle-weight {
 	font-family: 'Inter', sans-serif;
     color: #1C1C1C;
-    font-size: 20px;
 	font-weight: 600;
 	line-height: 40px;
 	margin: auto;
@@ -44,4 +41,40 @@
     font-size: 12px;
 	font-weight: 400;
 	line-height: 14px;
+}
+
+@media (max-width: 700px) {
+	.huge-weight {
+		font-size: 25px;
+	}
+
+	.huge-slim {
+		font-size: 25px;
+	}
+
+	.middle-weight {
+		font-size: 12px;
+	}
+
+	.middle-slim {
+		font-size: 12px;
+	}
+}
+
+@media (min-width: 700.01px) {
+	.huge-weight {
+		font-size: 48px;
+	}
+
+	.huge-slim {
+		font-size: 36px;
+	}
+
+	.middle-weight {
+		font-size: 20px;
+	}
+
+	.middle-slim {
+		font-size: 20px;
+	}
 }

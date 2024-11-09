@@ -25,14 +25,32 @@
 
 <style scoped>
 	.reviewblock {
-		padding: 64px 48px 0 48px;
 		display: grid;            
   		place-items: center;
 	}
 
 	.labelfield {
-		height: 100px;
-		padding: 21px 503px;
-		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+	}
+
+	@media (max-width: 700px) {
+		.labelfield {
+			height: 60px;
+		}
+
+		.reviewblock {
+			padding: 44px 6px 0 6px;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.labelfield {
+			height: 100px;
+		}
+
+		.reviewblock {
+			padding: 64px 48px 0 48px;
+		}
 	}
 </style>

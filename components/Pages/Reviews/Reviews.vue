@@ -25,9 +25,9 @@
 </template>
 
 <style scoped>
-	.reviewsPage {
-		padding: 64px 48px 0;
-	}
+	/* .reviewsPage {
+		padding: 64px 48px 0; */
+	/* } */
 
 	.bigLabelField {
 		height: 100px;
@@ -43,5 +43,11 @@
 		right: 340px;
 		color: #007AFF;
 		cursor: pointer;
+	}
+
+	@media (max-width: 700px) {
+		.reviewsPage {
+			padding: 15px;
+		}
 	}
 </style>

@@ -34,15 +34,9 @@
 
 
 <style scoped>
-	.intro {
-		padding: 48px 48px 0;
-	}
-
 	.bigLabelField {
-		height: 100px;
-		padding: 21px 503px;
-  		place-items: center;
-		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
 	}
 
 	.shortAbout {
@@ -50,8 +44,6 @@
 	}
 
 	.bigAva {
-		width: 300px;
-		height: 300px;
 		border-radius: 12px;
 	}
 
@@ -60,6 +52,48 @@
 		flex-direction: column; 
 		align-items: center;
 		justify-content: space-between; 
-		padding-left: 40px;
+	}
+
+	@media (max-width: 700px) {
+		.intro {
+			padding: 14px 14px 0;
+		}
+
+		.bigLabelField {
+			height: 60px;
+		}
+
+		.shortAbout {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.bigAva {
+			width: 200px;
+			height: 200px;
+		}
+
+		.introContent {
+			padding-left: 10px;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.intro {
+			padding: 48px 48px 0;
+		}
+
+		.bigLabelField {
+			height: 100px;
+		}
+
+		.introContent {
+			padding-left: 40px;
+		}
+
+		.bigAva {
+			width: 300px;
+			height: 300px;
+		}
 	}
 </style>

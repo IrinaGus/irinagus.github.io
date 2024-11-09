@@ -46,18 +46,15 @@
 <style scoped>
 	.bigField {
 		display: grid;            
-  		place-items: center;
+  		/* place-items: center; */
 	}
 
 	.review {
-		width: 700px;
 		display: flex;
 		margin-bottom: 24px;
-		padding: 0 290px;
 	}
 
 	.content {
-		padding-left: 24px;
 		flex-grow: 1;
 	}
 
@@ -80,5 +77,35 @@
 		margin-top: 12px;
 		object-fit: cover;
 		box-sizing: border-box;
+	}
+
+	@media (max-width: 700px) {
+		.review {
+			padding: 0 10px;
+		}
+
+		.content {
+			padding-left: 14px;
+		}
+
+		.ava {
+			width: 50px;
+			height: 50px;
+			border-radius: 100px;
+			flex-shrink: 0;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.review {
+			display: flex;
+			margin-bottom: 24px;
+			padding: 0 290px;
+		}
+
+		.content {
+			padding-left: 24px;
+			/* flex-grow: 1; */
+		}
 	}
 </style>

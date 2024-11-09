@@ -35,4 +35,10 @@
 		background-clip: text;
 		color: transparent;
 	}
+
+	@media (max-width: 700px) {
+		.star {
+			font-size: 1.2rem;
+		}
+	}
 </style>

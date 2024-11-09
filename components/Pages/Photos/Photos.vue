@@ -37,19 +37,11 @@
 	}
 
 	.bigLabelField {
-		height: 100px;
-		padding: 21px 503px;
-  		place-items: center;
-		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
 		}
 
-
-	.bigPhotoBlock {
-		padding: 0 120px;
-	}
-
 	.smallLabelField {
-		height: 148px;
 		display: flex;
 		place-items: center;
 		justify-content: center;
@@ -57,15 +49,27 @@
 
 	@media (max-width: 700px) {
 		.photoPage {
-			padding: 34px 28px 0;
+			padding: 34px 15px 0;
 			box-sizing: border-box;
 		}
 
 		.bigLabelField {
-			height: 70px;
-			padding: 21px 150px;
-			place-items: center;
-			box-sizing: border-box;
+			height: 60px;
+		}
+
+		.smallLabelField {
+			height: 80px;
+			align-items: flex-end;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.bigLabelField {
+			height: 100px;
+		}
+
+		.smallLabelField {
+			height: 148px;
 		}
 	}
 </style>

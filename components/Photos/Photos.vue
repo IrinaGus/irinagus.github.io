@@ -36,19 +36,30 @@
 	</div>
 </template>
 
-<style scoped>
-	.photos {
-		padding: 0 80px;
-		gap: 48px;
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		justify-items: center;
-	}
-	
+<style scoped>	
 	img {
 		height: 200px;
 		width: 200px;
 		border-radius: 12px;
 		object-fit: cover;
+	}
+
+	@media (max-width: 700px) {
+		.photos {
+			gap: 28px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.photos {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			padding: 0 80px;
+			gap: 48px;
+			justify-items: center;
+		}
 	}
 </style>

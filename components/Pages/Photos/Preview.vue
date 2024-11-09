@@ -14,7 +14,7 @@
 	const init = () => {		
 		if (props.items.length) {
 			if (route.query.id) {
-				select(parseInt(route.query.id))
+				select(route.query.id)
 			} else {
 				index.value = 0
 			}
@@ -68,17 +68,36 @@
 		display: flex;
 		justify-content: space-between;
 		place-items: center;
-		padding: 0 120px;
 	}
 
 	.Photo {
-		height: 500px;
 		border-radius: 12px;
 		object-fit: cover;
 	}
 
-	.arrow {
-		font-weight: 100;
-		font-size: 64px;
+	@media (max-width: 700px) {
+		.Photo {
+			height: 200px;
+		}
+
+		.arrow {
+			font-weight: 50;
+			font-size: 45px;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.bigField {
+			padding: 0 120px;
+		}
+
+		.Photo {
+			height: 500px;
+		}
+
+		.arrow {
+			font-weight: 100;
+			font-size: 64px;
+		}
 	}
 </style>

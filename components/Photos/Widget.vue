@@ -30,23 +30,33 @@
 
 <style scoped>
 	.photoblock {
-		padding: 64px 48px 0 48px;
 		display: grid;            
   		place-items: center;
 	}
 
 	.labelfield {
-		height: 100px;
-		padding: 21px 503px;
-		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
 	}
 
-	@media (max-width: 360px) {
+	@media (max-width: 700px) {
+		.labelfield {
+			height: 60px;
+			box-sizing: border-box;
+		}
+
 		.photoblock {
-			width: 100%;
 			padding: 44px 28px 0 28px;
-			display: grid;            
-  			place-items: center;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.photoblock {
+			padding: 64px 48px 0 48px;
+		}
+
+		.labelfield {
+			height: 100px;
 		}
 	}
 </style>

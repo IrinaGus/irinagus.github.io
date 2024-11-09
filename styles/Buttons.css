@@ -1,20 +1,14 @@
 .blue {
-	height: 50px;
 	border-radius: 16px;
 	gap: 10px;
 	background-color: #007AFF;
 	cursor: pointer;
 	display: grid;            
 	place-items: center;
-	font-weight: 500;
-	font-size: 24px;
 	color: #ffffff;
-	padding: 0 120px;
 }
 
 .white {
-	min-width: 300px;
-	height: 50px;
 	border-radius: 16px;
 	gap: 10px;
 	border: 1px;
@@ -23,8 +17,39 @@
 	cursor: pointer;
 	display: grid;            
 	place-items: center;
-	font-weight: 500;
-	font-size: 20px;
 	color: #007AFF;
 	margin-top: 24px;
+}
+
+@media (max-width: 700px) {
+	.blue {
+		font-size: 15px;
+		font-weight: 200;
+		width: 170px;
+		height: 30px;
+	}
+
+	.white {
+		height: 30px;
+		min-width: 170px;
+		font-size: 15px;
+		font-weight: 200;
+	}
+}
+
+@media (min-width: 700.01px) {
+	.blue {
+		height: 50px;
+		font-size: 24px;
+		padding: 0 70px;
+		font-weight: 500;
+	}
+
+	.white {
+		min-width: 300px;
+		font-size: 24px;
+		padding: 0 70px;
+		font-weight: 500;
+		height: 50px;
+	}
 }

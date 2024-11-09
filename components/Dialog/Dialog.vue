@@ -32,10 +32,22 @@
 	}
 
 	.modal {		
-		width: 748px;
-		border-radius: 24px;
 		background-color: white;
 		z-index: 1001;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+
+	@media (max-width: 700px) {
+		.modal {
+			width: 100%;
+			border-radius: 6px;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.modal {
+			width: 748px;
+			border-radius: 24px;
+		}
 	}
 </style>

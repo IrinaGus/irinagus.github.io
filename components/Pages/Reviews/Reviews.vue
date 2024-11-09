@@ -25,10 +25,6 @@
 </template>
 
 <style scoped>
-	/* .reviewsPage {
-		padding: 64px 48px 0; */
-	/* } */
-
 	.bigLabelField {
 		height: 100px;
 		display: flex;
@@ -40,7 +36,6 @@
 
 	.addReview {
 		position: absolute;
-		right: 340px;
 		color: #007AFF;
 		cursor: pointer;
 	}
@@ -48,6 +43,17 @@
 	@media (max-width: 700px) {
 		.reviewsPage {
 			padding: 15px;
+		}
+
+		.addReview {
+			right: 15px;
+			font-size: 13px;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.addReview {
+			right: 340px;
 		}
 	}
 </style>

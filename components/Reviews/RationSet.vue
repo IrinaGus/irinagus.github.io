@@ -53,4 +53,15 @@
 	.NewRatioStar:hover ~ .NewRatioStar {
 		color: #FAE100;
 	}
+
+	@media (max-width: 700px) {
+		.NewRatioStar {
+			font-size: 1.3rem;
+			color: #fdf5c6;
+			transition: color 0.2s;
+			text-shadow: 0 0 1px #FAE100,
+						0 0 2px #FAE100,
+						0 0 3px #FAE100;
+		}
+	}
 </style>

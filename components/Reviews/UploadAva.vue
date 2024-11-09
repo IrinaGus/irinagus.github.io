@@ -4,7 +4,6 @@
 	const emit = defineEmits(['uploadedAva']);
   
 	//DATA
-	// const image = ref(null);
 	const fileInput = ref(null); 
 	const props = defineProps({
 		newReview: {
@@ -49,9 +48,6 @@
 
 <style scoped>
   	.upload-area {
-		border-radius: 100px;
-		width: 72px;
-		height: 72px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: #007AFF;
@@ -60,10 +56,32 @@
 		justify-content: center;
 	}
 
-	.realAva {
-		border-radius: 100px;
-		width: 75px;
-		height: 75px;
+	@media (max-width: 700px) {
+		.upload-area {
+			border-radius: 60px;
+			width: 40px;
+			height: 40px;
+		}
+
+		.realAva {
+			border-radius: 60px;
+			width: 40px;
+			height: 40px;
+		}
+	}
+
+	@media (min-width: 700.01px) {
+		.upload-area {
+			border-radius: 100px;
+			width: 72px;
+			height: 72px;
+		}
+
+		.realAva {
+			border-radius: 100px;
+			width: 75px;
+			height: 75px;
+		}
 	}
 </style>
   

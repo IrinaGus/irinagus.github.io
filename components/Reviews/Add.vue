@@ -36,10 +36,8 @@
 			<div class="big-slim">レビューを書く</div> 
 		</div>
 		<div class="contentField">
-			<div class="ava">
-				<ReviewsUploadAva @uploadedAva="newReview.ava = $event"
-				:newReview="newReview"/>
-			</div>
+			<ReviewsUploadAva @uploadedAva="newReview.ava = $event"
+			:newReview="newReview"/>
 			<div class="inputField">
 				<div class="namestars">
 					<input v-model="newReview.name" placeholder="名前" 
@@ -62,9 +60,6 @@
 
 <style scoped>
 	.field {
-		width: 700px;
-		border-radius: 24px;
-		padding: 36px 24px;
 		position: relative;
 	}
 
@@ -75,29 +70,12 @@
 
 	.close {
 		position: absolute;
-		top: 10px;
-		right: 15px;
-		font-size: 24px;
-		font-weight: 400;
 		cursor: pointer;
+		font-weight: 400;
 	}
 
 	.contentField {
 		display: flex;
-		padding-top: 24px;
-		gap: 24px;
-	}
-
-	.ava {
-		border-radius: 100px;
-		width: 72px;
-		height: 72px;
-		border-width: 1px;
-		border-style: solid;
-		border-color: #007AFF;
-		display: flex;
-		align-items: center; 
-		justify-content: center;
 	}
 
 	.namestars {
@@ -106,29 +84,21 @@
 	}
 
 	.name {
-		min-width: 300px;
-		min-height: 46px;
-		border-radius: 12px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: #007AFF;
 		padding: 0 16px;
 		margin-bottom: 10px;
-		font-size: 20px;
 	}
 
 	.name::placeholder {
 		color: #9A9A9A; 
 		opacity: 1;
-		font-size: 20px;
-		font-weight: 400
-		
+		font-weight: 400	
 	}
 
 	.review {
-		min-width: 572px;
 		min-height: 92px;
-		border-radius: 12px;
 		border-width: 1px;
 		border-style: solid;
 		border-color: #007AFF;
@@ -136,16 +106,12 @@
 		gap: 10px;
 		margin-bottom: 10px;
 		resize: none;
-		font-size: 20px;
-
 	}
 
 	.review::placeholder {
 		color: #9A9A9A; 
 		opacity: 1;
-		font-size: 20px;
-		font-weight: 400
-		
+		font-weight: 400	
 	}
 
 	.buttons {
@@ -153,22 +119,94 @@
 		justify-content: space-between;
 	}
 
-	.save {
-		width: 48px;
-		height: 50px;
-		border-radius: 16px;
-		padding: 0 48px;
-		gap: 10px;
-		background-color: #007AFF;
-		display: flex;
-		align-items: center; 
-		justify-content: center;
-	}
-
 	.saveLabel {
 		font-size: 24px;
 		font-weight: 500;
 		color: #FFFFFF;
 		;
+	}
+
+	@media (max-width: 700px) {
+		.field {
+			width: 100%;
+			padding: 16px 14px;
+			position: relative;
+		}
+
+		 .close {
+			top: 5px;
+			right: 40px;
+			font-size: 18px;
+		} 
+
+		.contentField {
+			padding-top: 14px;
+			gap: 14px;
+		}
+
+		.name {
+			width: 100px;
+			min-height: 40px;
+			border-radius: 9px;
+			font-size: 15px;
+		}
+
+		.name::placeholder {
+			font-size: 15px;
+		}
+
+		.review {
+			min-width: 230px;
+			border-radius: 9px;
+			font-size: 15px; 
+		}
+
+		.review::placeholder {
+			font-size: 15px;
+		}
+
+	}
+
+	@media (min-width: 700.01px) {
+		.field {
+			width: 700px;
+			border-radius: 24px;
+			padding: 36px 24px;
+		}
+
+		.close {
+			top: 10px;
+			right: 15px;
+			font-size: 24px;
+		}
+
+		.contentField {
+			padding-top: 24px;
+			gap: 24px;
+		}
+
+		.name {
+			min-width: 300px;
+			min-height: 46px;
+			border-radius: 12px;
+			font-size: 20px;
+
+		}
+
+		.name::placeholder {
+			font-size: 20px;
+		}
+
+		.review {
+			min-width: 572px;
+			border-radius: 9px;
+			font-size: 20px; 
+		}
+
+		.review::placeholder {
+			font-size: 20px;
+		}
+
+
 	}
 </style>

@@ -78,6 +78,7 @@
 	@media (max-width: 700px) {
 		.Photo {
 			height: 200px;
+			max-width: 80%;
 		}
 
 		.arrow {

@@ -46,7 +46,6 @@
 <style scoped>
 	.bigField {
 		display: grid;            
-  		/* place-items: center; */
 	}
 
 	.review {
@@ -105,7 +104,6 @@
 
 		.content {
 			padding-left: 24px;
-			/* flex-grow: 1; */
 		}
 	}
 </style>

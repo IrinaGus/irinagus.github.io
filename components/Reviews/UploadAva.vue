@@ -2,9 +2,7 @@
 	import ava from '@/assets/icons/ava.svg';
 
 	const emit = defineEmits(['uploadedAva']);
-  
-	//DATA
-	const fileInput = ref(null); 
+
 	const props = defineProps({
 		newReview: {
 			type: Object,
@@ -12,7 +10,10 @@
 		}
 	});
   
+	//DATA
+	const fileInput = ref(null); 
 
+  
 	//METHODS
 	const triggerFileInput = () => {
 		fileInput.value.click(); 
@@ -34,7 +35,7 @@
 
 <template>
 	<div>
-		<div @click="triggerFileInput" class="upload-area">
+		<div @click="triggerFileInput" class="uploadArea">
 			<img :src="props.newReview.ava ? props.newReview.ava : ava" 
 				:alt="props.newReview.ava ? 'uploadedAva' : 'dummyAva'" 
 				:width="props.newReview.ava ? 100 : ''" 
@@ -47,7 +48,7 @@
 
 
 <style scoped>
-  	.upload-area {
+  	.uploadArea {
 		border-width: 1px;
 		border-style: solid;
 		border-color: #007AFF;
@@ -57,7 +58,7 @@
 	}
 
 	@media (max-width: 700px) {
-		.upload-area {
+		.uploadArea {
 			border-radius: 60px;
 			width: 40px;
 			height: 40px;
@@ -71,7 +72,7 @@
 	}
 
 	@media (min-width: 700.01px) {
-		.upload-area {
+		.uploadArea {
 			border-radius: 100px;
 			width: 72px;
 			height: 72px;

@@ -1,29 +1,21 @@
 <script setup>
 	//DATA
 	const router = useRouter();
-
-
-	//METHODS
-	const aboutPage = () => {
-		router.push("/about"); 
-	};
 </script>
 
 <template>
 	<div>
 		<div class="intro">
 			<div class="bigLabelField">
-				<div class="huge-weight">雪ちゃん</div>
+				<div class="hugeWeight">雪ちゃん</div>
 			</div>
 			<div class="shortAbout">
 				<img src="@/assets/Yukino.jpg" alt="photo" class="bigAva" />
 				<div class="introContent">
-					<div class="middle-slim">
+					<div class="middleSlim">
 						こんにちは！このかわいい白いポメラニアンの名前はユキ（雪）です。名前の通り、彼女はふわふわの白い毛を持ち、まるで小さな雪のかたまりのようです。ユキはとても優しく、みんなの心を癒す存在です。散歩のときには、彼女の小さな足で元気に歩き、多くの人を笑顔にしています。もし可愛らしいポメラニアンに興味があれば、ぜひ彼女のストーリーをフォローしてみてください！
 					</div>
-					<div class="blue" @click="aboutPage">
-						雪ちゃんは
-					</div>
+					<NuxtLink to="/about" class="blue">雪ちゃんは</NuxtLink>
 				</div>
 			</div>
 		</div>

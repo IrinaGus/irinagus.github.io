@@ -10,7 +10,7 @@ export default defineNuxtPlugin(() => {
 	};
 
 	const remove = (component) => {
-		const index = list.findIndex(item => item.__name === component);
+		const index = list.findIndex(item => item.__name === component.__name);
 		if (index !== -1) {
 			list.splice(index, 1);
 		}

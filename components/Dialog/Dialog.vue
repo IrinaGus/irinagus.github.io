@@ -1,16 +1,31 @@
 <script setup>
 	//DATA
-	const { $GetDialog } = useNuxtApp();
+	const { $GetDialog, $RemoveDialog } = useNuxtApp();
 	const dialogs = $GetDialog();
+
+	// METHODS
+	watch(
+		() => dialogs.length,
+		(newLength) => {
+			if (newLength > 0) {
+				document.body.style.overflow = 'hidden';
+			} else {
+				document.body.style.overflow = '';
+			}
+		}
+	);
+
+	const close = (item) => {
+		$RemoveDialog(item);
+	}
+	
 </script>
 
 <template>
 	<div v-if="dialogs.length > 0" class="overlay">
-		<div class="modal">
-			<component v-for="(dialog, index) in dialogs"
-				:key="index"
-				:is="dialog"			
-			/>
+		<div v-for="(dialog, index) in dialogs" class="modal">
+			<div @click="close(dialog)" class="close">x</div>
+			<component :key="index" :is="dialog" :dialog="dialog" />
 		</div>
 	</div>	
 </template>
@@ -35,6 +50,14 @@
 		background-color: white;
 		z-index: 1001;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		position: relative;
+	}
+
+	.close {
+		position: absolute;
+		cursor: pointer;
+		font-weight: 400;
+		z-index: 1002;
 	}
 
 	@media (max-width: 700px) {
@@ -42,12 +65,24 @@
 			width: 100%;
 			border-radius: 6px;
 		}
+
+		.close {
+			top: 5px;
+			right: 40px;
+			font-size: 18px;
+		} 
 	}
 
 	@media (min-width: 700.01px) {
 		.modal {
 			width: 748px;
 			border-radius: 24px;
+		}
+
+		.close {
+			top: 10px;
+			right: 15px;
+			font-size: 24px;
 		}
 	}
 </style>

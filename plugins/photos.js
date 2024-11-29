@@ -5,7 +5,7 @@ import photo4 from '@/assets/photos/image4.png';
 import photo5 from '@/assets/photos/image5.png';
 
 export default defineNuxtPlugin(() => {  
-	
+	//DATA
 	const photos = reactive([
 	  { id: '69fb7204-6fee-47b1-94c3-55100c118715', src: photo1, alt: 'Photo 1' },
 	  { id: '89fac4db-3b93-4b65-b488-8c2830cf4497', src: photo2, alt: 'Photo 2' },
@@ -15,10 +15,11 @@ export default defineNuxtPlugin(() => {
 	]);
 
 
-
-	const get = () => {
-		return photos; 
+	//METHODS
+	const get = (count) => {
+		return computed(() => photos.slice(-count).reverse());
 	};
+
 
 	const add = (item) => {
 		const newPhoto = ref({
@@ -26,11 +27,11 @@ export default defineNuxtPlugin(() => {
 			src: '',
 			alt: '',
 		});
-	
+		
 
 		newPhoto.value.src = item;
 		newPhoto.value.id = crypto.randomUUID();
-		photos.push({ ...newPhoto.value })
+		photos.push(newPhoto.value)
 		return newPhoto.value.id
 	}
 

@@ -1,32 +1,33 @@
 <script setup>
 	const props = defineProps({
-  		star: Number, 
+  		count: Number, 
 	});
 
 	//DATA
-	const WholeStars = Math.floor(props.star);
-	const hasHalfStar = computed(() => props.star % 1 !== 0);
+	const WholeStars = Math.floor(props.count);
+
+	//COMPUTEDS
+	const hasHalfStar = computed(() => props.count % 1 !== 0);
 </script>
 
 <template>
-	<div class="star-rating">
+	<div class="starRating">
 		<span v-for="index in WholeStars"
 			:key="index"
 			class="star">
-            &#9733;
+			&#9733;
         </span>
 		<span v-if="hasHalfStar" class="star half">&#9733;</span>
 	</div>
 </template>
 
 <style scoped>
-	.star-rating {
+	.starRating {
 		display: flex;
-		cursor: pointer;
 	}
 
 	.star {
-		font-size: 2rem;
+		font-size: 35px;
 		color: #FAE100;
 	}
 
@@ -38,7 +39,7 @@
 
 	@media (max-width: 700px) {
 		.star {
-			font-size: 1.2rem;
+			font-size: 20px;
 		}
 	}
 </style>

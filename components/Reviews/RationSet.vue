@@ -24,7 +24,7 @@
 			:key="index"
 			class="NewRatioStar"
 			:data-value="5 - index + 1"
-			>
+		>
             &#9733;
         </span>
 	</div>
@@ -34,10 +34,11 @@
 	.NewRatio {
 		display: flex;
 		cursor: pointer;
+		flex-direction: row-reverse;
 	}
 
 	.NewRatioStar {
-		font-size: 2rem;
+		font-size: 35px;
 		color: #fdf5c6;
 		transition: color 0.2s;
 		text-shadow: 0 0 1px #FAE100,

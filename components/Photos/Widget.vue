@@ -10,7 +10,6 @@
 	};
 
 	const selectPhoto = (id) => {
-		console.log('from widget', id)
 		router.push({name: "photos", query: {id}})	
 	};
 </script>
@@ -18,7 +17,7 @@
 <template>
 	<div class="photoblock">
 		<div class="labelfield">
-			<div class="huge-weight">写真</div>
+			<div class="hugeWeight">写真</div>
 		</div>
 		<Photos :count="photosToShow" @select="selectPhoto"/>
 		<div class="white" @click="photoPage">

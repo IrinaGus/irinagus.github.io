@@ -6,37 +6,33 @@
 
 	//DATA
 	const router = useRouter();
-	const { $ReviewsGet, $PhotosGet } = useNuxtApp();
-	const reviews = $ReviewsGet();
-	const photos = $PhotosGet();
+	const { $ReviewsGet } = useNuxtApp();
+	const reviews = $ReviewsGet(props.count);
 
-
+	
 	//METHODS
 	const selectPhoto = (id) => {
 		router.push({name: "photos", query: {id}})	
 	};
 
-	const displayPhoto = (photoid) => {
-		const photo = photos.find(p => p.id === photoid);
-		return photo ? photo.src : null;
-	};
+	console.log('rev1', reviews)
 </script>
 
 <template>
 	<div class="bigField">
 		<div
-			v-for="(item, index) of reviews.slice(-props.count)" 
+			v-for="(item, index) of reviews" 
 			:key="'review' + index"
 			class="review">
 			<img :src="item.ava" class="ava">
 			<div class="content">
 				<div class="header">
-					<div class="big-slim">{{ item.name }}</div>
-					<ReviewsStars :star="item.stars"/>
+					<div class="bigSlim">{{ item.name }}</div>
+					<ReviewsStars :count="item.stars"/>
 				</div>				
 				<div class="tiny">{{ item.text }}</div>
-				<img v-if="displayPhoto(item.photoid)" :src="displayPhoto(item.photoid)" class="photo"
-					@click="selectPhoto(item.photoid)">
+				<img v-if="item.src" :src="item.src" 
+					@click="selectPhoto(item.photoid)" class="photo">
 			</div>
 		</div> 
 	</div>
@@ -62,6 +58,7 @@
 		height: 72px;
 		border-radius: 100px;
 		flex-shrink: 0;
+		object-fit: cover;
 	}
 
 	.header {

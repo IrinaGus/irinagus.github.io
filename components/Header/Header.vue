@@ -28,13 +28,13 @@
 		</div>
 		<div class="miniLabel">
 			<img src="@/assets/Yukino.jpg" alt="photo" class="miniAva" />
-			<div class="middle-weight"> 雪ちゃんのウェブサイト</div>
+			<div class="middleWeight"> 雪ちゃんのウェブサイト</div>
 		</div>
 		<div class="linksBlock">
-			<NuxtLink to="/" class="middle-slim" active-class="active-link">ホーム</NuxtLink>
-			<NuxtLink to="/about" class="middle-slim" active-class="active-link">ユキちゃんについて</NuxtLink>
-			<NuxtLink to="/photos" class="middle-slim" active-class="active-link">写真</NuxtLink>
-			<NuxtLink to="/reviews" class="middle-slim" active-class="active-link">レビュー</NuxtLink>
+			<NuxtLink to="/" class="middleSlim" active-class="activeLink">ホーム</NuxtLink>
+			<NuxtLink to="/about" class="middleSlim" active-class="activeLink">ユキちゃんについて</NuxtLink>
+			<NuxtLink to="/photos" class="middleSlim" active-class="activeLink">写真</NuxtLink>
+			<NuxtLink to="/reviews" class="middleSlim" active-class="activeLink">レビュー</NuxtLink>
 		</div>
 	</div>
 </template>
@@ -66,8 +66,8 @@
 		color: #007AFF;
 	}
 
-	.active-link {
-		color: #007AFF;
+	.activeLink {
+		color: #007AFF !important;
 	}
 
 	@media (max-width: 700px) {

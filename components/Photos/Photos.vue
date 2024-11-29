@@ -7,16 +7,12 @@
 
 	//DATA
 	const { $PhotosGet } = useNuxtApp();
-	const photos = $PhotosGet();
-
-	const displayedPhotos = computed(() => {
-    	return props.count ? photos.slice(-props.count) : photos;
-  	});
+	const photos = $PhotosGet(props.count);
 
 
 	//METHODS
 	const init = () => {
-		emit("loaded", displayedPhotos.value);
+		emit("loaded", photos.value);
 	};
 
 	//INIT
@@ -28,7 +24,7 @@
 <template>
 	<div class="photos">
 		<img 
-			v-for="(item, index) of displayedPhotos.slice().reverse()" 
+			v-for="(item, index) of photos" 
 			:key="'photo' + index" 
 			:src="item.src"
 			@click="emit('select', item.id)"

@@ -13,7 +13,7 @@
 <template>
 	<div class="reviewblock">
 		<div class="labelfield">
-			<div class="huge-weight">レビュー</div>
+			<div class="hugeWeight">レビュー</div>
 		</div>
 		<Reviews :count="reviewsToShow"/>
 		<div class="white" @click="reviewPage">

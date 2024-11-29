@@ -1,34 +1,27 @@
 <script setup>
 	const emit = defineEmits(['uploadedPhoto']);
-	const { $PhotosAdd } = useNuxtApp();
+	const { $PhotosAdd} = useNuxtApp();
+
+
+	//DATA
+	const buttonText = ref('写真を追加');
+	const fileInput = ref(null);
 
 
 	//METHODS
-	const triggerFileInput = async () => {
-		try {
-			const [fileHandle] = await window.showOpenFilePicker({
-				types: [
-					{
-						description: 'Images',
-						accept: {
-							'image/*': ['.png', '.jpg', '.jpeg', '.gif']
-						}
-					}
-				],
-				excludeAcceptAllOption: true,
-				multiple: false
-			});
-			const file = await fileHandle.getFile();
+	const triggerFileInput = () => {
+		fileInput.value.click();
+	};
 
+	const handleFile = (event) => {
+		const file = event.target.files[0];
+		if (file) {
 			const reader = new FileReader();
 			reader.onload = (e) => {
 				emit('uploadedPhoto', $PhotosAdd(e.target.result));
-			};
-
+				buttonText.value = '完了しました';
+			}
 			reader.readAsDataURL(file);
-			
-		} catch (error) {
-			console.error("File selection cancelled or error occurred:", error);
 		}
 	};
 </script>
@@ -36,8 +29,16 @@
 
 <template>
 	<div>
+		<input 
+		type="file" 
+		ref="fileInput" 
+		style="display: none;" 
+		accept="image/*" 
+		@change="handleFile"
+		/>
+  
 		<div @click="triggerFileInput" class="uploadArea">
-			写真を追加
+			{{buttonText}}
 		</div>
 	</div>
 </template>
@@ -53,6 +54,12 @@
 		justify-content: center;
 		color: #007AFF;
 		font-weight: 500;
+		cursor: pointer;
+		transition: box-shadow 0.3s ease;
+	}
+
+	.uploadArea:hover {
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	}
 
 	@media (max-width: 700px) {

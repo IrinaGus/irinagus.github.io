@@ -17,13 +17,13 @@
 <template>
 	<div class="photoPage">
 		<div class="bigLabelField">
-			<div class="huge-weight">
+			<div class="hugeWeight">
 				写真
 			</div>
 		</div>
 		<PagesPhotosPreview ref="refPreview" :items="photos"/>
 		<div class="smallLabelField">
-			<div class="huge-slim">
+			<div class="hugeSlim">
 				写真12枚
 			</div>
 		</div>

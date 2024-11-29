@@ -1,7 +1,9 @@
 <script setup>
 	//DATA
-	const { $ReviewsGet, $RemoveDialog } = useNuxtApp();
-	const reviews = $ReviewsGet();
+	const props = defineProps({
+		dialog: Object, 
+	});
+	const { $RemoveDialog, $ReviewsAdd } = useNuxtApp();
 	const newReview = ref({
 		name: '',
 		text: '',
@@ -9,31 +11,26 @@
 		ava: null,
 		photoid: null,
 	});
+	
 
 
 	//METHODS
 	const saveReview = () => {
 		if (newReview.value.name && newReview.value.text) {
-			reviews.push({ ...newReview.value });
+			$ReviewsAdd(newReview.value)
+			$RemoveDialog(props.dialog)
 		}
+		
 		newReview.value.name = ''
 		newReview.value.text = ''
-		
-		$RemoveDialog("Add")
+		newReview.value.stars = null	
 	}
-	
-
-	const close = () => {
-		$RemoveDialog("Add");
-	}
-
 </script>
 
 <template>
 	<div class="field">
-		<div class="close" @click="close">x</div>
 		<div class="labelField">
-			<div class="big-slim">レビューを書く</div> 
+			<div class="bigSlim">レビューを書く</div> 
 		</div>
 		<div class="contentField">
 			<ReviewsUploadAva @uploadedAva="newReview.ava = $event"
@@ -68,11 +65,11 @@
 		justify-content: center;
 	}
 
-	.close {
+	/* .close {
 		position: absolute;
 		cursor: pointer;
 		font-weight: 400;
-	}
+	} */
 
 	.contentField {
 		display: flex;
@@ -133,11 +130,11 @@
 			position: relative;
 		}
 
-		 .close {
+		/* .close {
 			top: 5px;
 			right: 40px;
 			font-size: 18px;
-		} 
+		}  */
 
 		.contentField {
 			padding-top: 14px;
@@ -174,11 +171,11 @@
 			padding: 36px 24px;
 		}
 
-		.close {
+		/* .close {
 			top: 10px;
 			right: 15px;
 			font-size: 24px;
-		}
+		} */
 
 		.contentField {
 			padding-top: 24px;

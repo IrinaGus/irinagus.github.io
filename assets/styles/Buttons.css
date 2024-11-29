@@ -5,6 +5,13 @@
 	display: grid;            
 	place-items: center;
 	color: #ffffff;
+	text-decoration: none;
+	cursor: pointer;
+	transition: box-shadow 0.3s ease;
+}
+
+.blue:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .white {
@@ -17,6 +24,12 @@
 	place-items: center;
 	color: #007AFF;
 	margin-top: 24px;
+	cursor: pointer;
+	transition: box-shadow 0.3s ease;
+}
+
+.white:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 700px) {

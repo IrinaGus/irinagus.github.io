@@ -4,5 +4,4 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
   app: {baseURL: "/"},
-  css: [ '@/styles/Text.css', '@/styles/Buttons.css' ]
 })

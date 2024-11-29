@@ -15,7 +15,7 @@
 <template>
 	<div class="reviewsPage">
 		<div class="bigLabelField">
-			<div class="huge-weight">
+			<div class="hugeWeight">
 				レビュー
 			</div>
 			<div class="addReview" @click="add">+新しい</div>

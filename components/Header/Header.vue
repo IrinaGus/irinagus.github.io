@@ -1,22 +1,20 @@
 <script setup>
+	//DATA
+	const linksDisplay = ref('default')
+	const miniLabelDisplay = ref('default')
+
+
+	//METHODS
 	const menu = () => {
-		const MiniLabelElements = document.getElementsByClassName("miniLabel");
-		const Links = document.getElementsByClassName("linksBlock");
-		for (let element of MiniLabelElements) {
-			if (element.style.display == "none") {
-				element.style.display = "flex";
-				for (let link of Links) {
-					link.style.display = "none";
-				}
-			}
-			else {
-				element.style.display = "none";
-				for (let link of Links) {
-					link.style.display = "flex";
-				}
-			}
-		}	
+		if (linksDisplay.value == 'unvisible' || linksDisplay.value == 'default') {
+			miniLabelDisplay.value = 'unvisible'
+			linksDisplay.value = 'visible'
 		}
+		else {
+			linksDisplay.value = 'unvisible'
+			miniLabelDisplay.value = 'visible'			
+		}	
+	}
 </script>
 
 <template>
@@ -26,11 +24,11 @@
 			<div class="line"></div>
 			<div class="line"></div>
 		</div>
-		<div class="miniLabel">
+		<div :class="{'miniLabel': true, [miniLabelDisplay]: true}">
 			<img src="@/assets/Yukino.jpg" alt="photo" class="miniAva" />
 			<div class="middleWeight"> 雪ちゃんのウェブサイト</div>
 		</div>
-		<div class="linksBlock">
+		<div :class="{'linksBlock': true, [linksDisplay]: true}">
 			<NuxtLink to="/" class="middleSlim" active-class="activeLink">ホーム</NuxtLink>
 			<NuxtLink to="/about" class="middleSlim" active-class="activeLink">ユキちゃんについて</NuxtLink>
 			<NuxtLink to="/photos" class="middleSlim" active-class="activeLink">写真</NuxtLink>
@@ -59,6 +57,7 @@
 
 	.linksBlock {
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 	}
 
@@ -76,10 +75,20 @@
 			flex-wrap: wrap;			
 		}
 
-		.linksBlock {
+		.miniLabel.unvisible,
+		.linksBlock.unvisible,
+		.linksBlock.default {
 			display: none;
+		}
+
+		.miniLabel.visible,
+		.linksBlock.visible,
+		.miniLabel.default {
+			display: flex;
+		}
+
+		.linksBlock {
 			gap: 20px;
-			align-items: center;
 		}
 
 		.sandwich {
@@ -105,12 +114,17 @@
 			place-items: center;
 		}
 
+		.sandwich {
+			display: none;
+		}
+
 		.linksBlock {
 			gap: 40px;
 		}
 
-		.sandwich {
-			display: none;
+		.miniLabel.default,
+		.linksBlock.default {
+			display: flex;
 		}
 	}
 </style>

@@ -39,7 +39,8 @@
 				<div class="namestars">
 					<input v-model="newReview.name" placeholder="名前" 
 						type="text" class="name" />
-					<ReviewsRationSet @selectStars="newReview.stars = $event"/> 
+					<ReviewsStars @selectStars="newReview.stars = $event"
+					:count="null"/> 
 				</div>
 				<textarea v-model="newReview.text" placeholder="レビュー"
 					type="text" class="review" />

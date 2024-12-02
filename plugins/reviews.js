@@ -43,8 +43,6 @@ export default defineNuxtPlugin(() => {
 		return computed(() => {
 			return reviews.slice(-count).reverse().map((review) => {
 				const photo = photos.value.find((p) => p.id === review.photoid);
-				console.log('rev from plugin', reviews)
-				console.log('photos from plugin', photos)
 				return {...review, src: photo ? photo.src : null, };
 			});
 		});

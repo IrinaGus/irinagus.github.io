@@ -14,8 +14,6 @@
 	const selectPhoto = (id) => {
 		router.push({name: "photos", query: {id}})	
 	};
-
-	console.log('rev1', reviews)
 </script>
 
 <template>

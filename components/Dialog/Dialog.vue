@@ -18,7 +18,6 @@
 	const close = (item) => {
 		$RemoveDialog(item);
 	}
-	
 </script>
 
 <template>
@@ -32,7 +31,6 @@
 
 
 <style scoped>
-
 	.overlay {
 		position: fixed;
 		top: 0;
